@@ -39,32 +39,32 @@ export default class DataSource{
   correctLetterSoundFiles = [];
   wrongLetterSoundFiles = [];
   currentStudySound:Sound;
-  currentLetter = '';
+  currentCharacter = '';
   letterArray = ['A','O','U']; // change in this and GameLogic
 
   hiragana = [//Monographs only
     //a, i, u, e, o
-    ['∅','あ', 'い', 'う', 'え', 'お'],
+    [' ','あ', 'い', 'う', 'え', 'お'], //'∅'
     ['K','か', 'き', 'く', 'け', 'こ'],
     ['G','が', 'ぎ', 'ぐ', 'げ', 'ご'],
     ['S','さ', 'し', 'す', 'せ', 'そ'],
     ['Z','ざ', 'じ', 'ず', 'ぜ', 'ぞ'],
-    ['T','タ', 'チ', 'ツ', 'テ', 'ト'],
-    ['D','ダ', 'ヂ', 'ヅ', 'デ', 'ド'],
-    ['N','ナ', 'ニ', 'ヌ', 'ネ', 'ノ'],
-    ['H','ハ', 'ヒ', 'フ', 'ヘ', 'ホ'],
-    ['B','バ', 'ビ', 'ブ', 'ベ', 'ボ'],
-    ['P','パ', 'ピ', 'プ', 'ペ', 'ポ'],
-    ['M','マ', 'ミ', 'ム', 'メ', 'モ'],
-    ['Y','ヤ', '', 'ユ', '', 'ヨ'],
-    ['R','ラ', 'リ', 'ル', 'レ', 'ロ'],
-    ['W','ワ', '', '', '', 'ヲ'],
-    ['n','','','ン','',''],
+    ['T','た', 'ち', 'つ', 'て', 'と'],
+    ['D','だ', 'ぢ', 'づ', 'で', 'ど'],
+    ['N','な', 'に', 'ぬ', 'ね', 'の'],
+    ['H','は', 'ひ', 'ふ', 'へ', 'ほ'],
+    ['B','ば', 'び', 'ぶ', 'べ', 'ぼ'],
+    ['P','ぱ', 'ぴ', 'ぷ', 'ぺ', 'ぽ'],
+    ['M','ま', 'み', 'む', 'め', 'も'],
+    ['Y','や', '', 'ゆ', '', 'よ'],
+    ['R','ら', 'り', 'る', 'れ', 'ろ'],
+    ['W','わ', '', '', '', 'を'],
+    ['n','','','ん','',''],
   ];
 
   katakana = [//Monographs only
     //a, i, u, e, o
-    ['∅','ア', 'イ', 'ウ', 'エ', 'オ'],
+    [' ','ア', 'イ', 'ウ', 'エ', 'オ'], //'∅'
     ['K','カ', 'キ', 'ク', 'ケ', 'コ'],
     ['G','ガ', 'ギ', 'グ', 'ゲ', 'ゴ'],
     ['S','サ', 'シ', 'ス', 'セ', 'ソ'],
@@ -145,19 +145,28 @@ export default class DataSource{
     this.loadCorrectSound();
     this.loadWrongSound();
 
+
+
+
+    //Need to change and update
+
+    /*
+    //Use this instead of arrays
+    for (var key in p) {
+      if (p.hasOwnProperty(key)) {
+        console.log(key + " -> " + p[key]);
+      }
+    }
+    */
+
+    /*
+
     //load letter sounds
 
     var aSounds = ['aSound1.mp3','aSound2.mp3','aSound3.mp3'];
     var oSounds = ['oSound1.mp3','oSound2.mp3','oSound3.mp3'];
     var uSounds = ['uSound1.mp3','uSound2.mp3','uSound3.mp3'];
-/*
-//Use this instead of arrays
-for (var key in p) {
-  if (p.hasOwnProperty(key)) {
-    console.log(key + " -> " + p[key]);
-  }
-}
-*/
+
 
     var sounds = [aSounds, oSounds, uSounds];
     for (var i =0; i < sounds.length; i++){
@@ -175,9 +184,13 @@ for (var key in p) {
       }
       this.soundFiles.push(tempArray);
     }
+    */
   }
 
   playStudyLetterSound(letter, reset?:bool){
+    //need to update and add Japanese Phonics sounds
+
+    /*
     if (this.currentStudySound && reset){
       this.currentStudySound.stop();
     }
@@ -187,12 +200,17 @@ for (var key in p) {
     //play the sound
     this.soundFiles[soundIndex][randomSoundVersion].play();
     this.currentStudySound = this.soundFiles[soundIndex][randomSoundVersion];
+    */
   }
 
   playLetterSound(soundIndex){
+    //UNCOMMENT WHEN UPDATED
+
+    /*
     var randomSoundVersion = randomInt(0, this.soundFiles[soundIndex].length - 1);
     //play the sound
     this.soundFiles[soundIndex][randomSoundVersion].play();
+    */
   }
 
 

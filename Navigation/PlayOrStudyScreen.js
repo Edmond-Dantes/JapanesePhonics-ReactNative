@@ -19,6 +19,7 @@ var {
 } = Dimensions.get('window');
 
 export default class PlayOrStudyScreen extends Component {
+  currentRow; //= this.props.navigation.state.params.currentRow;
   static navigationOptions = {
     title: ({ state }) => `${
       state.params.currentRow[1] + ' ' +
@@ -44,17 +45,84 @@ export default class PlayOrStudyScreen extends Component {
     }),
   };
 
+  getCurrentRow(){
+    return this.currentRow;
+  }
+
+  componentDidMount(){
+    this.currentRow = this.props.navigation.state.params.currentRow;
+  }
+
   render(){
+    var that = this;
+    function covertToRomaji(place:number){
+      var rowData = that.props.navigation.state.params.currentRow;
+      //var romaji = '';
+      if (rowData[0] == 'Y' && (place == 2 || place == 4)){
+        return '';
+      }
+      if (rowData[0] == 'W' && (place == 2 || place == 3 || place == 4)){
+        return '';
+      }
+      if (rowData[0] == 'n' && place == 3){
+        return 'n';
+      }else if (rowData[0] == 'n'){
+        return '';
+      }
+
+      var vowels = ['','a','i','u','e','o']
+
+      return rowData[0] + vowels[place];
+    }
+    var rowData = this.props.navigation.state.params.currentRow
+    var titleText = (
+      covertToRomaji(1) + ' ' +
+      covertToRomaji(2) + ' ' +
+      covertToRomaji(3) + ' ' +
+      covertToRomaji(4) + ' ' +
+      covertToRomaji(5) + ' '
+    );
+
+    function checkForNStyling(){
+      if (rowData[0] == 'n'){
+         return deviceWidth * .03;
+      } else return deviceWidth * .01;
+    }
+    var checkForNStyle = checkForNStyling();
+
+    const { navigate } = this.props.navigation;
+
     return (
-      <View style ={navStyles.body}>
-        <View style = {navStyles.bodyItems}>
-          <Text style = {navStyles.bodyItemText}>Play</Text>
-        </View>
-        <View style = {navStyles.bodyItems}>
-          <Text style = {navStyles.bodyItemText}>Study</Text>
+
+        <View style ={navStyles.body}>
+          <Text style ={{paddingLeft: checkForNStyle}}> {titleText} </Text>
+
+          <View style = {navStyles.bodyItems}>
+            <Text
+              style = {navStyles.bodyItemText}
+              onPress = {() => {
+                //this._moveScreenWhenLeaving();
+                navigate('Game', {currentRow:rowData, currentCharacter: rowData[1]});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
+                //this._moveScreenWhenReturned();
+              }}
+              >
+                Play
+              </Text>
+          </View>
+          <View style = {navStyles.bodyItems}>
+            <Text
+              style = {navStyles.bodyItemText}
+              onPress = {() => {
+                //this._moveScreenWhenLeaving();
+                navigate('Study', {currentRow:rowData});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
+                //this._moveScreenWhenReturned();
+              }}
+              >
+                Study
+              </Text>
+          </View>
         </View>
 
-      </View>
     );
   }
 

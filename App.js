@@ -13,6 +13,7 @@ import GameView from "./Components/GameView";
 import KatakanaScreen from "./Navigation/KatakanaScreen";
 import HiraganaScreen from "./Navigation/HiraganaScreen";
 import PlayOrStudyScreen from "./Navigation/PlayOrStudyScreen";
+import StudyScreen from "./Navigation/StudyScreen";
 
 
 export default class JapanesePhonics extends Component {
@@ -27,6 +28,13 @@ export default class JapanesePhonics extends Component {
   }
 }
 
+Array.prototype.clone = function() {
+  var clone = [];
+  for (i = 0; i<this.length; i++){
+    clone.push(this[i]);
+  }
+	return clone;
+};
 
 var {
   height:deviceHeight,
@@ -76,6 +84,7 @@ const MainTabScreen = TabNavigator(
 const App = StackNavigator({
   Main: { screen: MainTabScreen },
   PlayOrStudy: {screen: PlayOrStudyScreen},
+  Study: {screen: StudyScreen},
   Game: { screen: GameView },
 },
   {

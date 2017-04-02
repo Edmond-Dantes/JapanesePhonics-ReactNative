@@ -50,26 +50,28 @@ class ChartTitleRow extends Component{
 class Row extends Component{
   render(){
     return (
-      <View style = {styles.row}>
-        <View style = {{alignSelf: 'center', width: 17}}>
-          <Text>{this.props.rowData[0]}</Text>
+      <TouchableOpacity onPress = {this.props.onPress}>
+        <View style = {styles.row}>
+          <View style = {{alignSelf: 'center', width: 17}}>
+            <Text>{this.props.rowData[0]}</Text>
+          </View>
+          <View style = {[styles.rowElement,{borderLeftWidth:2}]}>
+            <Text style = {styles.letter}> {this.props.rowData[1]} </Text>
+          </View>
+          <View style = {styles.rowElement}>
+            <Text style = {styles.letter}> {this.props.rowData[2]} </Text>
+          </View>
+          <View style = {styles.rowElement}>
+            <Text style = {styles.letter}> {this.props.rowData[3]} </Text>
+          </View>
+          <View style = {styles.rowElement}>
+            <Text style = {styles.letter}> {this.props.rowData[4]} </Text>
+          </View>
+          <View style = {[styles.rowElement,{borderRightWidth:2}]}>
+            <Text style = {styles.letter}> {this.props.rowData[5]} </Text>
+          </View>
         </View>
-        <View style = {[styles.rowElement,{borderLeftWidth:2}]}>
-          <Text style = {styles.letter}> {this.props.rowData[1]} </Text>
-        </View>
-        <View style = {styles.rowElement}>
-          <Text style = {styles.letter}> {this.props.rowData[2]} </Text>
-        </View>
-        <View style = {styles.rowElement}>
-          <Text style = {styles.letter}> {this.props.rowData[3]} </Text>
-        </View>
-        <View style = {styles.rowElement}>
-          <Text style = {styles.letter}> {this.props.rowData[4]} </Text>
-        </View>
-        <View style = {[styles.rowElement,{borderRightWidth:2}]}>
-          <Text style = {styles.letter}> {this.props.rowData[5]} </Text>
-        </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
@@ -146,7 +148,7 @@ export default class HiraganaScreen extends Component {
             rowData = {rowData}
             onPress = {() => {
               this._moveScreenWhenLeaving();
-              navigate('Game', {letter:rowData, returnScreen:this._moveScreenWhenReturned.bind(this)});
+              navigate('PlayOrStudy', {currentRow:rowData, returnScreen:this._moveScreenWhenReturned.bind(this)});
               //this._moveScreenWhenReturned();
             }}
           />

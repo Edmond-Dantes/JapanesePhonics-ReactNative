@@ -83,11 +83,11 @@ export default class GameView extends Component {
     this.state = {
       activeScoreTouch: false,
     };
-    this.gameLogic.currentLetter = this.props.navigation.state.params.letter;//this.currentLetter;
+    this.gameLogic.data.currentCharacter = this.props.navigation.state.params.currentCharacter;//this.currentLetter;
   }
 
   static navigationOptions = {
-    title: ({ state }) => `Let's practice ${state.params.letter}`,
+    title: ({ state }) => `Let's practice ${state.params.currentCharacter}`,
     header: ({goBack, state})=>({
       visible: true,
       style: navStyles.header,
@@ -95,8 +95,8 @@ export default class GameView extends Component {
       tintColor: 'tomato',
       left: (
         <Text onPress = {()=>{goBack();
-        console.log(state);
-        state.params.returnScreen();
+        //console.log(state);
+        //state.params.returnScreen();
       }}
           >
           Back

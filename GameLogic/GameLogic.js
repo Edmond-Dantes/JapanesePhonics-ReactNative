@@ -171,7 +171,7 @@ export default class GameLogic{
         that.randomLetterRevealStartTimer = setTimeout( ()=>{
           that.randomLetterIndex = getNewRandomInt(0, 2, that.previousRandomLetterIndex);
           //var randomLetterIndex = that.randomLetterIndex;
-          if (that.data.letterArray[that.randomLetterIndex] === that.data.currentLetter){
+          if (that.data.letterArray[that.randomLetterIndex] === that.data.currentCharacter){
             that.randomCorrectSoundIndex = getNewRandomInt(0, that.data.correctLetterSoundFiles.length - 1, that.previousCorrectSoundIndex);
             that.previousCorrectSoundIndex = that.randomCorrectSoundIndex;
           }
