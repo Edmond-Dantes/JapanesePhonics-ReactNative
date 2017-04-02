@@ -10,11 +10,12 @@ import { StackNavigator } from 'react-navigation';
 import { TabNavigator, TabView } from 'react-navigation';
 
 import GameView from "./Components/GameView";
-import MainScreen from "./Navigation/MainScreen";
-import StudyScreen from "./Navigation/StudyScreen";
+import KatakanaScreen from "./Navigation/KatakanaScreen";
+import HiraganaScreen from "./Navigation/HiraganaScreen";
+import PlayOrStudyScreen from "./Navigation/PlayOrStudyScreen";
 
 
-export default class PhonicsTeacher extends Component {
+export default class JapanesePhonics extends Component {
 
 
 
@@ -53,8 +54,8 @@ const styles = StyleSheet.create({
 
 const MainTabScreen = TabNavigator(
   {
-    Tab1: { screen: MainScreen },
-    Tab2: { screen: StudyScreen }
+    KatakanaTab: { screen: KatakanaScreen },
+    HiraganaTab: { screen: HiraganaScreen }
   },
   {
     //tabBarComponent: TabView.TabBarTop,
@@ -69,9 +70,12 @@ const MainTabScreen = TabNavigator(
   }
 );
 
+//const PlayOrStudyScreen = StackNavigator
+
 
 const App = StackNavigator({
   Main: { screen: MainTabScreen },
+  PlayOrStudy: {screen: PlayOrStudyScreen},
   Game: { screen: GameView },
 },
   {
@@ -97,4 +101,4 @@ const App = StackNavigator({
 
 
 
-AppRegistry.registerComponent('PhonicsTeacher', ()=> PhonicsTeacher);
+AppRegistry.registerComponent('JapanesePhonics', ()=> JapanesePhonics);

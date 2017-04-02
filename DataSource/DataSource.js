@@ -18,6 +18,20 @@ function getNewRandomInt(min, max, previousRandomNumber){
   return randomNumber
 }
 
+function createChartData(array){
+  var vowelsArray = ['a', 'i', 'u', 'e', 'o'];
+  var tempObject = {
+    'a':array[0],
+    'i':array[1],
+    'u':array[2],
+    'e':array[3],
+    'o':array[4],
+  };
+  //for (var i = 0; i < array.length; i++){}
+
+  return tempObject;
+}
+
 export default class DataSource{
   that = this;
 
@@ -26,8 +40,69 @@ export default class DataSource{
   wrongLetterSoundFiles = [];
   currentStudySound:Sound;
   currentLetter = '';
+  letterArray = ['A','O','U']; // change in this and GameLogic
 
-  letterArray = ['A','O','U'];
+  hiragana = [//Monographs only
+    //a, i, u, e, o
+    ['∅','あ', 'い', 'う', 'え', 'お'],
+    ['K','か', 'き', 'く', 'け', 'こ'],
+    ['G','が', 'ぎ', 'ぐ', 'げ', 'ご'],
+    ['S','さ', 'し', 'す', 'せ', 'そ'],
+    ['Z','ざ', 'じ', 'ず', 'ぜ', 'ぞ'],
+    ['T','タ', 'チ', 'ツ', 'テ', 'ト'],
+    ['D','ダ', 'ヂ', 'ヅ', 'デ', 'ド'],
+    ['N','ナ', 'ニ', 'ヌ', 'ネ', 'ノ'],
+    ['H','ハ', 'ヒ', 'フ', 'ヘ', 'ホ'],
+    ['B','バ', 'ビ', 'ブ', 'ベ', 'ボ'],
+    ['P','パ', 'ピ', 'プ', 'ペ', 'ポ'],
+    ['M','マ', 'ミ', 'ム', 'メ', 'モ'],
+    ['Y','ヤ', '', 'ユ', '', 'ヨ'],
+    ['R','ラ', 'リ', 'ル', 'レ', 'ロ'],
+    ['W','ワ', '', '', '', 'ヲ'],
+    ['n','','','ン','',''],
+  ];
+
+  katakana = [//Monographs only
+    //a, i, u, e, o
+    ['∅','ア', 'イ', 'ウ', 'エ', 'オ'],
+    ['K','カ', 'キ', 'ク', 'ケ', 'コ'],
+    ['G','ガ', 'ギ', 'グ', 'ゲ', 'ゴ'],
+    ['S','サ', 'シ', 'ス', 'セ', 'ソ'],
+    ['Z','ザ', 'ジ', 'ズ', 'ゼ', 'ゾ'],
+    ['T','タ', 'チ', 'ツ', 'テ', 'ト'],
+    ['D','ダ', 'ヂ', 'ヅ', 'デ', 'ド'],
+    ['N','ナ', 'ニ', 'ヌ', 'ネ', 'ノ'],
+    ['H','ハ', 'ヒ', 'フ', 'ヘ', 'ホ'],
+    ['B','バ', 'ビ', 'ブ', 'ベ', 'ボ'],
+    ['P','パ', 'ピ', 'プ', 'ペ', 'ポ'],
+    ['M','マ', 'ミ', 'ム', 'メ', 'モ'],
+    ['Y','ヤ', '', 'ユ', '', 'ヨ'],
+    ['R','ラ', 'リ', 'ル', 'レ', 'ロ'],
+    ['W','ワ', '', '', '', 'ヲ'],
+    ['n','','','ン','',''],
+  ];
+
+  /*
+  katakana = {//Monographs only
+    //a, i, u, e, o
+    '∅':createChartData(['ア', 'イ', 'ウ', 'エ', 'オ']),
+    'K':createChartData(['カ', 'キ', 'ク', 'ケ', 'コ']),
+    'G':createChartData(['ガ', 'ギ', 'グ', 'ゲ', 'ゴ']),
+    'S':createChartData(['サ', 'シ', 'ス', 'セ', 'ソ']),
+    'Z':createChartData(['ザ', 'ジ', 'ズ', 'ゼ', 'ゾ']),
+    'T':createChartData(['タ', 'チ', 'ツ', 'テ', 'ト']),
+    'D':createChartData(['ダ', 'ヂ', 'ヅ', 'デ', 'ド']),
+    'N':createChartData(['ナ', 'ニ', 'ヌ', 'ネ', 'ノ']),
+    'H':createChartData(['ハ', 'ヒ', 'フ', 'ヘ', 'ホ']),
+    'B':createChartData(['バ', 'ビ', 'ブ', 'ベ', 'ボ']),
+    'P':createChartData(['パ', 'ピ', 'プ', 'ペ', 'ポ']),
+    'M':createChartData(['マ', 'ミ', 'ム', 'メ', 'モ']),
+    'Y':createChartData(['ヤ', '', 'ユ', '', 'ヨ']),
+    'R':createChartData(['ラ', 'リ', 'ル', 'レ', 'ロ']),
+    'W':createChartData(['ワ', '', '', '', 'ヲ']),
+    'n':{'∅':'ン'},
+  }
+  */
 
   constructor(){
 
