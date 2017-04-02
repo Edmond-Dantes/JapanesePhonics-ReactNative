@@ -19,6 +19,7 @@ import LetterView from './LetterView';
 import HUDView from './HUDView';
 import GameLogic from '../GameLogic/GameLogic';
 import Sound from 'react-native-sound';
+import DataSource from '../DataSource/DataSource';
 
 
 const navStyles = StyleSheet.create({
@@ -72,22 +73,31 @@ var letterViewPositions = {
 export default class GameView extends Component {
   state;
   gameLogic:GameLogic;
+  //data: DataSource;
   soundFiles = [];
-  currentLetter = 'A';
+  //currentLetter = 'A';
   that = this;
 
   //props: {};
   constructor(props){
     super(props);
     this.gameLogic = new GameLogic();
+    //this.data = new DataSource();
     this.state = {
       activeScoreTouch: false,
     };
+    this.gameLogic.data.currentRowCharacters = this.props.navigation.state.params.currentRowCharacters;
     this.gameLogic.data.currentCharacter = this.props.navigation.state.params.currentCharacter;//this.currentLetter;
   }
 
   static navigationOptions = {
-    title: ({ state }) => `Let's practice ${state.params.currentCharacter}`,
+    title: ({ state }) => `Let's ${
+      state.params.currentRow[1] + ' ' +
+      state.params.currentRow[2] + ' ' +
+      state.params.currentRow[3] + ' ' +
+      state.params.currentRow[4] + ' ' +
+      state.params.currentRow[5]
+    }`,
     header: ({goBack, state})=>({
       visible: true,
       style: navStyles.header,
@@ -118,11 +128,16 @@ export default class GameView extends Component {
 
   updateCount(displayLetter:string, position:string, previousCount:number){//count:number){
 
-    if (!this.state.activeScoreTouch && this.gameLogic.currentLetter == displayLetter && this.shouldShowPosition(position)){
+    if (!this.state.activeScoreTouch && this.gameLogic.data.currentCharacter == displayLetter && this.shouldShowPosition(position)){
         this.setState({
           activeScoreTouch: true,
         });
         this.gameLogic.scoreCount = ++this.gameLogic.scoreCount
+        var row = this.gameLogic.data.currentRowCharacters;
+        var character = this.gameLogic.data.currentCharacter;
+        if (row.indexOf(character) == row.length - 1){
+          this.gameLogic.data.currentCharacter = row[0];
+        }else this.gameLogic.data.currentCharacter = row[row.indexOf(character) + 1];
         this.updateRender();
       return previousCount + 1
     }
@@ -132,6 +147,8 @@ export default class GameView extends Component {
   }
   componentDidMount(){
     //this.startRandomLetterReveal();
+    this.gameLogic.data.currentRowCharacters = this.props.navigation.state.params.currentRowCharacters;
+    this.gameLogic.data.currentCharacter = this.props.navigation.state.params.currentCharacter;//this.currentLetter;
     this.gameLogic.startRandomLetterReveal(this.updateRender.bind(this), this.updateActiveScoreTouch.bind(this), );
   }
 
@@ -164,11 +181,10 @@ export default class GameView extends Component {
   render() {
     const { params } = this.props.navigation.state;
 
-    var testLetterArray = ['','A','B','C','D'];
-    var letterArray = ['A','O','U'];
-    var letterSoundsArray = ['aSound1.mp3', 'oSound1.mp3', 'uSound1.mp3'];
+    var characterArray = params.currentRowCharacters;
+    //var letterSoundsArray = ['aSound1.mp3', 'oSound1.mp3', 'uSound1.mp3'];
 
-    const randomLetter = letterArray[this.gameLogic.randomLetterIndex];
+    const randomLetter = characterArray[this.gameLogic.randomLetterIndex];
     const letter = randomLetter;//'A' //randomLetter
 
     const correctDelayTime = 1000;
@@ -180,7 +196,7 @@ export default class GameView extends Component {
 
     return (
       <View style = {styles.bigContainer}>
-        <HUDView scoreCount = {this.gameLogic.scoreCount} currentLetter = {this.gameLogic.currentLetter}/>
+        <HUDView scoreCount = {this.gameLogic.scoreCount} currentCharacter = {this.gameLogic.data.currentCharacter}/>
         <View style = {styles.container}>
           <View style = {[styles.letterRow, {zIndex: topRowZIndex}]}>
             <LetterView

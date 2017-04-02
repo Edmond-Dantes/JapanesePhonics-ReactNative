@@ -98,7 +98,7 @@ class Letter extends Component{
   }
 
   render(){
-    let display = '';//this.props.showLetter ? this.props.letter : '';
+    let display = this.props.showLetter ? this.props.letter : ''; //'';
     let fontColor = (!this.props.letter /*== 'A'*/) ? 'transparent':StyleSheet.flatten(styles.letter).color;
 
 

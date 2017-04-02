@@ -30,14 +30,20 @@ export default class HUDView extends Component{
     return (
       <View style = {styles.hudView}>
         <Text style = {styles.text}>
-          {letterToDisplay || this.props.currentLetter}
+          {letterToDisplay || this.props.currentCharacter}
         </Text>
-        <Text style = {[styles.text, styles.math, styles.times]}>
-          x
-        </Text>
-        <Text style = {[styles.text, styles.math, styles.count ]}>
-          {this.props.scoreCount}
-        </Text>
+        <View style = {{paddingTop: deviceHeight * .025}}>
+          <View style = {styles.scoreView}>
+            <Text style = {[styles.text, styles.math, styles.count ]}>
+              Score:
+            </Text>
+          </View>
+          <View style = {styles.scoreView}>
+            <Text style = {[styles.text, styles.math, styles.count ]}>
+              {this.props.scoreCount}
+            </Text>
+          </View>
+        </View>
       </View>
     );
   }
@@ -51,7 +57,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',//'flex-start',//'center',
     //backgroundColor: "transparent",//'#F5FCFF',
-    height: (deviceHeight - deviceWidth) / 2,
+    height: deviceHeight * .15,
     width: deviceWidth,
     top: 0,
 
@@ -59,7 +65,8 @@ const styles = StyleSheet.create({
   text: {
     fontSize: (deviceHeight - deviceWidth) / 4,//100,
     color: 'ghostwhite',
-    padding: 0,
+    textAlign: 'right',
+    width: deviceWidth/2,
     margin: deviceWidth / 25,//0,
     textShadowColor: 'black',
     textShadowRadius: 3,
@@ -76,7 +83,20 @@ const styles = StyleSheet.create({
     fontSize: (deviceHeight - deviceWidth) / 12,
     textShadowRadius: 1,
   },
+  scoreView:{
+    marginRight:deviceWidth * .2,
+    width: deviceWidth / 3,
+    height: deviceHeight * .07,
+  },
   count: {
+    //flex: 0,
+    //flexDirection: 'column',
+    //justifyContent: 'center',
+    //backgroundColor: 'blue',
+    margin: 0,
+    width: deviceWidth / 2,
+    height: deviceHeight * .1,
     fontSize: (deviceHeight - deviceWidth) / 8,
+    textAlign: 'center',
   },
 });

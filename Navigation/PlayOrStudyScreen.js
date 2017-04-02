@@ -102,7 +102,7 @@ export default class PlayOrStudyScreen extends Component {
               style = {navStyles.bodyItemText}
               onPress = {() => {
                 //this._moveScreenWhenLeaving();
-                navigate('Game', {currentRow:rowData, currentCharacter: rowData[1]});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
+                navigate('Game', {currentRow:rowData, currentRowCharacters:rowData.clone().splice(1,5), currentCharacter: rowData[1]});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
                 //this._moveScreenWhenReturned();
               }}
               >

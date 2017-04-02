@@ -40,7 +40,8 @@ export default class DataSource{
   wrongLetterSoundFiles = [];
   currentStudySound:Sound;
   currentCharacter = '';
-  letterArray = ['A','O','U']; // change in this and GameLogic
+  currentRowCharacters = [];
+  //letterArray = ['A','O','U']; // change in this and GameLogic
 
   hiragana = [//Monographs only
     //a, i, u, e, o
