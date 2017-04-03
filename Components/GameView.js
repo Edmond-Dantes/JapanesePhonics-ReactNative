@@ -107,13 +107,14 @@ export default class GameView extends Component {
       titleStyle: navStyles.letterHeader,
       tintColor: 'tomato',
       left: (
-        <Text onPress = {()=>{goBack();
+        <Button
+          title={'Back'}
+          onPress = {()=>{goBack();
         //console.log(state);
-        //state.params.returnScreen();
+        state.params.returnScreen();
       }}
-          >
-          Back
-        </Text>
+        />
+
       ),
       right: (
         <Button

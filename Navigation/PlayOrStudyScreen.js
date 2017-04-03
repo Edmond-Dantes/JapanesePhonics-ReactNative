@@ -8,6 +8,7 @@ import {
   ListView,
   Animated,
   TouchableOpacity,
+  Button,
   //LayoutAnimation,
 } from 'react-native';
 import DataSource from '../DataSource/DataSource';
@@ -34,13 +35,13 @@ export default class PlayOrStudyScreen extends Component {
       titleStyle: navStyles.letterHeader,
       tintColor: 'tomato',
       left: (
-        <Text onPress = {()=>{goBack();
+        <Button
+          title={'Back'}
+          onPress = {()=>{goBack();
         //console.log(state);
         state.params.returnScreen();
       }}
-          >
-          Back
-        </Text>
+        />
             ),
     }),
   };

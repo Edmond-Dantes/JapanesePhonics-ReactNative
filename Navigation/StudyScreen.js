@@ -44,13 +44,13 @@ export default class StudyScreen extends Component {
         //titleStyle: navStyles.letterHeader,
         //tintColor: 'tomato',
         left: (
-          <Text onPress = {()=>{goBack();
+          <Button
+            title={'Back'}
+            onPress = {()=>{goBack();
           //console.log(state);
-          state.params.currentRow;
+          state.params.returnScreen();
         }}
-            >
-            Back
-          </Text>
+          />
               ),
       }),
     };
