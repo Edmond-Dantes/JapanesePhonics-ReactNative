@@ -53,8 +53,8 @@ export default class DataSource{
     NA:['a.mp3', 'i.mp3', 'u.mp3', 'e.mp3', 'o.mp3'], //'∅'
     K:['ka.mp3', 'ki.mp3', 'ku.mp3', 'ke.mp3', 'ko.mp3'],
     G:['ga.mp3', 'gi.mp3', 'gu.mp3', 'ge.mp3', 'go.mp3'],
-    S:['sa.mp3', 'si.mp3', 'su.mp3', 'se.mp3', 'so.mp3'],
-    Z:['za.mp3', 'zi.mp3', 'zu.mp3', 'ze.mp3', 'zo.mp3'],
+    S:['sa.mp3', 'shi.mp3', 'su.mp3', 'se.mp3', 'so.mp3'],
+    Z:['za.mp3', 'ji.mp3', 'zu.mp3', 'ze.mp3', 'zo.mp3'],
     T:['ta.mp3', 'chi.mp3', 'tsu.mp3', 'te.mp3', 'to.mp3'],
     D:['da.mp3', 'ji.mp3', 'zu.mp3', 'de.mp3', 'do.mp3'],
     N:['na.mp3', 'ni.mp3', 'nu.mp3', 'ne.mp3', 'no.mp3'],
@@ -152,7 +152,7 @@ export default class DataSource{
           break;
         default:
           console.log(this.characterSoundFilesAvailable[row][i]);
-          /*var newSound = new Sound(this.characterSoundFilesAvailable[row][i], Sound.MAIN_BUNDLE, (error) => {
+          var newSound = new Sound(this.characterSoundFilesAvailable[row][i], Sound.MAIN_BUNDLE, (error) => {
             if (error) {
               console.log('failed to load the sound', error);
               return;
@@ -160,7 +160,7 @@ export default class DataSource{
           // loaded successfully
           //console.log('duration in seconds: ' + newSound.getDuration() + 'number of channels: ' + newSound.getNumberOfChannels());
           });
-          this.soundFiles.push(newSound);*/
+          this.soundFiles.push(newSound);
       }
     }
   }
@@ -225,8 +225,8 @@ export default class DataSource{
     var soundIndex = kanaChart[chartConsonantIndex].indexOf(character) - 1;
     console.log(this.characterSoundFilesAvailable[consonant][soundIndex]);
     //play sound
-    //this.soundFiles[soundIndex].play();
-    //this.currentStudySound = this.soundFiles[soundIndex];
+    this.soundFiles[soundIndex].play();
+    this.currentStudySound = this.soundFiles[soundIndex];
 
   }
 
@@ -235,7 +235,7 @@ export default class DataSource{
     console.log(this.characterSoundFilesAvailable[this.currentLeftAxisConsonant][soundIndex]);
 
     //play the sound
-    //this.soundFiles[soundIndex].play();
+    this.soundFiles[soundIndex].play();
 
   }
 

@@ -99,6 +99,9 @@ class Letter extends Component{
 
   render(){
     let display = this.props.showLetter ? this.props.letter : ''; //'';
+    if (this.props.isDifficult){
+      display = '';
+    }
     let fontColor = (!this.props.letter /*== 'A'*/) ? 'transparent':StyleSheet.flatten(styles.letter).color;
 
 
@@ -349,6 +352,7 @@ export default class LetterView extends Component {
       <TouchableWithoutFeedback onPressIn = {this._onPress.bind(this)}>
           <Animated.View style = {[styles.letterView, {width: this.state.w, height: this.state.w}, {backgroundColor: this.backgroundColorWhenHidden() || /*backgroundColorToMatchLetter[this.props.letter] ||*/ this.props.backgroundColor}]}>
             <Letter
+              isDifficult = {this.props.isDifficult}
               position = {this.props.position}
               showLetter = {this.props.showLetter}
               letter = {this.props.letter}

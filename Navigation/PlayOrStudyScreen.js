@@ -70,7 +70,7 @@ export default class PlayOrStudyScreen extends Component {
 
       var vowels = ['','a','i','u','e','o']
 
-      return rowData[0] + vowels[place];
+      return ((rowData[0] != 'NA')?rowData[0]:'') + vowels[place];
     }
     var rowData = this.props.navigation.state.params.currentRow
     var titleText = (
@@ -100,7 +100,7 @@ export default class PlayOrStudyScreen extends Component {
               style = {navStyles.bodyItemText}
               onPress = {() => {
                 //this._moveScreenWhenLeaving();
-                navigate('Game', {currentRow:rowData, currentRowCharacters:rowData.clone().splice(1,5), currentCharacter: rowData[1]});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
+                navigate('Game', {isDifficult:false, currentRow:rowData, currentRowCharacters:rowData.clone().splice(1,5), currentCharacter: (rowData[0] != 'n')?rowData[1]:rowData[3]});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
                 //this._moveScreenWhenReturned();
               }}
               >

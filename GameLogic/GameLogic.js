@@ -109,8 +109,22 @@ export default class GameLogic{
       (function setTimeoutTimer(){
         var randomDelay = averageTimerInterval + (averageTimerInterval / 8) * getNewRandomInt(0, 4, that.previousRandomDelay) - averageLetterDisplayTime/4;
         that.randomLetterRevealStartTimer = setTimeout( ()=>{
-          that.randomLetterIndex = getNewRandomInt(0, that.data.currentRowCharacters.length - 1, that.previousRandomLetterIndex);
-          //var randomLetterIndex = that.randomLetterIndex;
+          if (that.data.currentLeftAxisConsonant != 'n' && that.data.currentLeftAxisConsonant != 'W'){
+            do{ //correct for W, Y, and n
+            that.randomLetterIndex = getNewRandomInt(0, that.data.currentRowCharacters.length - 1, that.previousRandomLetterIndex);
+            }while(that.data.currentRowCharacters[that.randomLetterIndex] == '');
+          }else if(that.data.currentLeftAxisConsonant == 'n'){
+            that.randomLetterIndex = 2;
+          }else if(that.data.currentLeftAxisConsonant == 'W'){
+            switch (randomInt(0,1)) {
+              case 0:
+                that.randomLetterIndex = 0;
+                break;
+              default:
+                that.randomLetterIndex = 4;
+              }
+
+          }
           if (that.data.currentRowCharacters[that.randomLetterIndex] === that.data.currentCharacter){
             that.randomCorrectSoundIndex = getNewRandomInt(0, that.data.correctCharacterSoundFiles.length - 1, that.previousCorrectSoundIndex);
             that.previousCorrectSoundIndex = that.randomCorrectSoundIndex;
@@ -139,6 +153,6 @@ export default class GameLogic{
     return that
   }
 
-  
+
 
 }

@@ -83,7 +83,7 @@ export default class StudyScreen extends Component {
               </Text>
           <Image
             style = {{width: 40, height: 35}}
-            source = {require('../img/soundIcon.png')}/>
+            source = {(rowData == '')?null:require('../img/soundIcon.png')}/>
         </View>)}
         />
         <Text style = {styles.swipe}> {swipeRightText} </Text>

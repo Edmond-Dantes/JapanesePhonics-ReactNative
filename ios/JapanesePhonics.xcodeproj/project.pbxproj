@@ -37,16 +37,75 @@
 		2DCD954D1E0B4F2C00145EB5 /* JapanesePhonicsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* JapanesePhonicsTests.m */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
-		852CB1B71E9101DC00679D28 /* aSound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1AD1E9101DC00679D28 /* aSound1.mp3 */; };
-		852CB1B81E9101DC00679D28 /* aSound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1AE1E9101DC00679D28 /* aSound2.mp3 */; };
-		852CB1B91E9101DC00679D28 /* aSound3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1AF1E9101DC00679D28 /* aSound3.mp3 */; };
+		851ADCFE1E92A1F70000BD12 /* a.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCBA1E92A1F70000BD12 /* a.mp3 */; };
+		851ADCFF1E92A1F70000BD12 /* ba.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCBB1E92A1F70000BD12 /* ba.mp3 */; };
+		851ADD001E92A1F70000BD12 /* be.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCBC1E92A1F70000BD12 /* be.mp3 */; };
+		851ADD011E92A1F70000BD12 /* bi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCBD1E92A1F70000BD12 /* bi.mp3 */; };
+		851ADD021E92A1F70000BD12 /* bo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCBE1E92A1F70000BD12 /* bo.mp3 */; };
+		851ADD031E92A1F70000BD12 /* bu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCBF1E92A1F70000BD12 /* bu.mp3 */; };
+		851ADD041E92A1F70000BD12 /* chi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC01E92A1F70000BD12 /* chi.mp3 */; };
+		851ADD051E92A1F70000BD12 /* da.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC11E92A1F70000BD12 /* da.mp3 */; };
+		851ADD061E92A1F70000BD12 /* de.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC21E92A1F70000BD12 /* de.mp3 */; };
+		851ADD071E92A1F70000BD12 /* do.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC31E92A1F70000BD12 /* do.mp3 */; };
+		851ADD081E92A1F70000BD12 /* e.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC41E92A1F70000BD12 /* e.mp3 */; };
+		851ADD091E92A1F70000BD12 /* ga.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC51E92A1F70000BD12 /* ga.mp3 */; };
+		851ADD0A1E92A1F70000BD12 /* ge.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC61E92A1F70000BD12 /* ge.mp3 */; };
+		851ADD0B1E92A1F70000BD12 /* gi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC71E92A1F70000BD12 /* gi.mp3 */; };
+		851ADD0C1E92A1F70000BD12 /* go.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC81E92A1F70000BD12 /* go.mp3 */; };
+		851ADD0D1E92A1F70000BD12 /* gu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCC91E92A1F70000BD12 /* gu.mp3 */; };
+		851ADD0E1E92A1F70000BD12 /* ha.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCCA1E92A1F70000BD12 /* ha.mp3 */; };
+		851ADD0F1E92A1F70000BD12 /* he.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCCB1E92A1F70000BD12 /* he.mp3 */; };
+		851ADD101E92A1F70000BD12 /* hi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCCC1E92A1F70000BD12 /* hi.mp3 */; };
+		851ADD111E92A1F70000BD12 /* ho.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCCD1E92A1F70000BD12 /* ho.mp3 */; };
+		851ADD121E92A1F70000BD12 /* hu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCCE1E92A1F70000BD12 /* hu.mp3 */; };
+		851ADD131E92A1F70000BD12 /* i.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCCF1E92A1F70000BD12 /* i.mp3 */; };
+		851ADD141E92A1F70000BD12 /* ji.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD01E92A1F70000BD12 /* ji.mp3 */; };
+		851ADD151E92A1F70000BD12 /* ka.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD11E92A1F70000BD12 /* ka.mp3 */; };
+		851ADD161E92A1F70000BD12 /* ke.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD21E92A1F70000BD12 /* ke.mp3 */; };
+		851ADD171E92A1F70000BD12 /* ki.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD31E92A1F70000BD12 /* ki.mp3 */; };
+		851ADD181E92A1F70000BD12 /* ko.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD41E92A1F70000BD12 /* ko.mp3 */; };
+		851ADD191E92A1F70000BD12 /* ku.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD51E92A1F70000BD12 /* ku.mp3 */; };
+		851ADD1A1E92A1F70000BD12 /* ma.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD61E92A1F70000BD12 /* ma.mp3 */; };
+		851ADD1B1E92A1F70000BD12 /* me.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD71E92A1F70000BD12 /* me.mp3 */; };
+		851ADD1C1E92A1F70000BD12 /* mi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD81E92A1F70000BD12 /* mi.mp3 */; };
+		851ADD1D1E92A1F70000BD12 /* mo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCD91E92A1F70000BD12 /* mo.mp3 */; };
+		851ADD1E1E92A1F70000BD12 /* mu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCDA1E92A1F70000BD12 /* mu.mp3 */; };
+		851ADD1F1E92A1F70000BD12 /* n.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCDB1E92A1F70000BD12 /* n.mp3 */; };
+		851ADD201E92A1F70000BD12 /* na.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCDC1E92A1F70000BD12 /* na.mp3 */; };
+		851ADD211E92A1F70000BD12 /* ne.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCDD1E92A1F70000BD12 /* ne.mp3 */; };
+		851ADD221E92A1F70000BD12 /* ni.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCDE1E92A1F70000BD12 /* ni.mp3 */; };
+		851ADD231E92A1F70000BD12 /* no.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCDF1E92A1F70000BD12 /* no.mp3 */; };
+		851ADD241E92A1F70000BD12 /* nu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE01E92A1F70000BD12 /* nu.mp3 */; };
+		851ADD251E92A1F70000BD12 /* o.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE11E92A1F70000BD12 /* o.mp3 */; };
+		851ADD261E92A1F70000BD12 /* pa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE21E92A1F70000BD12 /* pa.mp3 */; };
+		851ADD271E92A1F70000BD12 /* pe.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE31E92A1F70000BD12 /* pe.mp3 */; };
+		851ADD281E92A1F70000BD12 /* pi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE41E92A1F70000BD12 /* pi.mp3 */; };
+		851ADD291E92A1F70000BD12 /* po.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE51E92A1F70000BD12 /* po.mp3 */; };
+		851ADD2A1E92A1F70000BD12 /* pu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE61E92A1F70000BD12 /* pu.mp3 */; };
+		851ADD2B1E92A1F70000BD12 /* ra.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE71E92A1F70000BD12 /* ra.mp3 */; };
+		851ADD2C1E92A1F70000BD12 /* re.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE81E92A1F70000BD12 /* re.mp3 */; };
+		851ADD2D1E92A1F70000BD12 /* ri.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCE91E92A1F70000BD12 /* ri.mp3 */; };
+		851ADD2E1E92A1F70000BD12 /* ro.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCEA1E92A1F70000BD12 /* ro.mp3 */; };
+		851ADD2F1E92A1F70000BD12 /* ru.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCEB1E92A1F70000BD12 /* ru.mp3 */; };
+		851ADD301E92A1F70000BD12 /* sa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCEC1E92A1F70000BD12 /* sa.mp3 */; };
+		851ADD311E92A1F70000BD12 /* se.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCED1E92A1F70000BD12 /* se.mp3 */; };
+		851ADD321E92A1F70000BD12 /* shi.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCEE1E92A1F70000BD12 /* shi.mp3 */; };
+		851ADD331E92A1F70000BD12 /* so.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCEF1E92A1F70000BD12 /* so.mp3 */; };
+		851ADD341E92A1F70000BD12 /* su.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF01E92A1F70000BD12 /* su.mp3 */; };
+		851ADD351E92A1F70000BD12 /* ta.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF11E92A1F70000BD12 /* ta.mp3 */; };
+		851ADD361E92A1F70000BD12 /* te.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF21E92A1F70000BD12 /* te.mp3 */; };
+		851ADD371E92A1F70000BD12 /* to.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF31E92A1F70000BD12 /* to.mp3 */; };
+		851ADD381E92A1F70000BD12 /* tsu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF41E92A1F70000BD12 /* tsu.mp3 */; };
+		851ADD391E92A1F70000BD12 /* u.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF51E92A1F70000BD12 /* u.mp3 */; };
+		851ADD3A1E92A1F70000BD12 /* wa.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF61E92A1F70000BD12 /* wa.mp3 */; };
+		851ADD3B1E92A1F70000BD12 /* ya.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF71E92A1F70000BD12 /* ya.mp3 */; };
+		851ADD3C1E92A1F70000BD12 /* yo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF81E92A1F70000BD12 /* yo.mp3 */; };
+		851ADD3D1E92A1F70000BD12 /* yu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCF91E92A1F70000BD12 /* yu.mp3 */; };
+		851ADD3E1E92A1F70000BD12 /* za.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCFA1E92A1F70000BD12 /* za.mp3 */; };
+		851ADD3F1E92A1F70000BD12 /* ze.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCFB1E92A1F70000BD12 /* ze.mp3 */; };
+		851ADD401E92A1F70000BD12 /* zo.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCFC1E92A1F70000BD12 /* zo.mp3 */; };
+		851ADD411E92A1F70000BD12 /* zu.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 851ADCFD1E92A1F70000BD12 /* zu.mp3 */; };
 		852CB1BA1E9101DC00679D28 /* mistakeSound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1B01E9101DC00679D28 /* mistakeSound.mp3 */; };
-		852CB1BB1E9101DC00679D28 /* oSound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1B11E9101DC00679D28 /* oSound1.mp3 */; };
-		852CB1BC1E9101DC00679D28 /* oSound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1B21E9101DC00679D28 /* oSound2.mp3 */; };
-		852CB1BD1E9101DC00679D28 /* oSound3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1B31E9101DC00679D28 /* oSound3.mp3 */; };
-		852CB1BE1E9101DC00679D28 /* uSound1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1B41E9101DC00679D28 /* uSound1.mp3 */; };
-		852CB1BF1E9101DC00679D28 /* uSound2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1B51E9101DC00679D28 /* uSound2.mp3 */; };
-		852CB1C01E9101DC00679D28 /* uSound3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1B61E9101DC00679D28 /* uSound3.mp3 */; };
 		852CB1C21E91026F00679D28 /* soundIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1C11E91026F00679D28 /* soundIcon.png */; };
 		852CB1EF1E91059900679D28 /* NiceJob.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1EC1E91059900679D28 /* NiceJob.mp3 */; };
 		852CB1F01E91059900679D28 /* Wonderful.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 852CB1ED1E91059900679D28 /* Wonderful.mp3 */; };
@@ -277,16 +336,75 @@
 		5E91572D1DD0AC6500FF2AA8 /* RCTAnimation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTAnimation.xcodeproj; path = "../node_modules/react-native/Libraries/NativeAnimation/RCTAnimation.xcodeproj"; sourceTree = "<group>"; };
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
-		852CB1AD1E9101DC00679D28 /* aSound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = aSound1.mp3; path = ../Media/aSound1.mp3; sourceTree = "<group>"; };
-		852CB1AE1E9101DC00679D28 /* aSound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = aSound2.mp3; path = ../Media/aSound2.mp3; sourceTree = "<group>"; };
-		852CB1AF1E9101DC00679D28 /* aSound3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = aSound3.mp3; path = ../Media/aSound3.mp3; sourceTree = "<group>"; };
+		851ADCBA1E92A1F70000BD12 /* a.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = a.mp3; path = ../Media/JapanesePhonicsSounds/a.mp3; sourceTree = "<group>"; };
+		851ADCBB1E92A1F70000BD12 /* ba.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ba.mp3; path = ../Media/JapanesePhonicsSounds/ba.mp3; sourceTree = "<group>"; };
+		851ADCBC1E92A1F70000BD12 /* be.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = be.mp3; path = ../Media/JapanesePhonicsSounds/be.mp3; sourceTree = "<group>"; };
+		851ADCBD1E92A1F70000BD12 /* bi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bi.mp3; path = ../Media/JapanesePhonicsSounds/bi.mp3; sourceTree = "<group>"; };
+		851ADCBE1E92A1F70000BD12 /* bo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bo.mp3; path = ../Media/JapanesePhonicsSounds/bo.mp3; sourceTree = "<group>"; };
+		851ADCBF1E92A1F70000BD12 /* bu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = bu.mp3; path = ../Media/JapanesePhonicsSounds/bu.mp3; sourceTree = "<group>"; };
+		851ADCC01E92A1F70000BD12 /* chi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = chi.mp3; path = ../Media/JapanesePhonicsSounds/chi.mp3; sourceTree = "<group>"; };
+		851ADCC11E92A1F70000BD12 /* da.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = da.mp3; path = ../Media/JapanesePhonicsSounds/da.mp3; sourceTree = "<group>"; };
+		851ADCC21E92A1F70000BD12 /* de.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = de.mp3; path = ../Media/JapanesePhonicsSounds/de.mp3; sourceTree = "<group>"; };
+		851ADCC31E92A1F70000BD12 /* do.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = do.mp3; path = ../Media/JapanesePhonicsSounds/do.mp3; sourceTree = "<group>"; };
+		851ADCC41E92A1F70000BD12 /* e.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = e.mp3; path = ../Media/JapanesePhonicsSounds/e.mp3; sourceTree = "<group>"; };
+		851ADCC51E92A1F70000BD12 /* ga.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ga.mp3; path = ../Media/JapanesePhonicsSounds/ga.mp3; sourceTree = "<group>"; };
+		851ADCC61E92A1F70000BD12 /* ge.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ge.mp3; path = ../Media/JapanesePhonicsSounds/ge.mp3; sourceTree = "<group>"; };
+		851ADCC71E92A1F70000BD12 /* gi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gi.mp3; path = ../Media/JapanesePhonicsSounds/gi.mp3; sourceTree = "<group>"; };
+		851ADCC81E92A1F70000BD12 /* go.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = go.mp3; path = ../Media/JapanesePhonicsSounds/go.mp3; sourceTree = "<group>"; };
+		851ADCC91E92A1F70000BD12 /* gu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = gu.mp3; path = ../Media/JapanesePhonicsSounds/gu.mp3; sourceTree = "<group>"; };
+		851ADCCA1E92A1F70000BD12 /* ha.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ha.mp3; path = ../Media/JapanesePhonicsSounds/ha.mp3; sourceTree = "<group>"; };
+		851ADCCB1E92A1F70000BD12 /* he.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = he.mp3; path = ../Media/JapanesePhonicsSounds/he.mp3; sourceTree = "<group>"; };
+		851ADCCC1E92A1F70000BD12 /* hi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hi.mp3; path = ../Media/JapanesePhonicsSounds/hi.mp3; sourceTree = "<group>"; };
+		851ADCCD1E92A1F70000BD12 /* ho.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ho.mp3; path = ../Media/JapanesePhonicsSounds/ho.mp3; sourceTree = "<group>"; };
+		851ADCCE1E92A1F70000BD12 /* hu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = hu.mp3; path = ../Media/JapanesePhonicsSounds/hu.mp3; sourceTree = "<group>"; };
+		851ADCCF1E92A1F70000BD12 /* i.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = i.mp3; path = ../Media/JapanesePhonicsSounds/i.mp3; sourceTree = "<group>"; };
+		851ADCD01E92A1F70000BD12 /* ji.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ji.mp3; path = ../Media/JapanesePhonicsSounds/ji.mp3; sourceTree = "<group>"; };
+		851ADCD11E92A1F70000BD12 /* ka.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ka.mp3; path = ../Media/JapanesePhonicsSounds/ka.mp3; sourceTree = "<group>"; };
+		851ADCD21E92A1F70000BD12 /* ke.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ke.mp3; path = ../Media/JapanesePhonicsSounds/ke.mp3; sourceTree = "<group>"; };
+		851ADCD31E92A1F70000BD12 /* ki.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ki.mp3; path = ../Media/JapanesePhonicsSounds/ki.mp3; sourceTree = "<group>"; };
+		851ADCD41E92A1F70000BD12 /* ko.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ko.mp3; path = ../Media/JapanesePhonicsSounds/ko.mp3; sourceTree = "<group>"; };
+		851ADCD51E92A1F70000BD12 /* ku.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ku.mp3; path = ../Media/JapanesePhonicsSounds/ku.mp3; sourceTree = "<group>"; };
+		851ADCD61E92A1F70000BD12 /* ma.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ma.mp3; path = ../Media/JapanesePhonicsSounds/ma.mp3; sourceTree = "<group>"; };
+		851ADCD71E92A1F70000BD12 /* me.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = me.mp3; path = ../Media/JapanesePhonicsSounds/me.mp3; sourceTree = "<group>"; };
+		851ADCD81E92A1F70000BD12 /* mi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mi.mp3; path = ../Media/JapanesePhonicsSounds/mi.mp3; sourceTree = "<group>"; };
+		851ADCD91E92A1F70000BD12 /* mo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mo.mp3; path = ../Media/JapanesePhonicsSounds/mo.mp3; sourceTree = "<group>"; };
+		851ADCDA1E92A1F70000BD12 /* mu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mu.mp3; path = ../Media/JapanesePhonicsSounds/mu.mp3; sourceTree = "<group>"; };
+		851ADCDB1E92A1F70000BD12 /* n.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = n.mp3; path = ../Media/JapanesePhonicsSounds/n.mp3; sourceTree = "<group>"; };
+		851ADCDC1E92A1F70000BD12 /* na.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = na.mp3; path = ../Media/JapanesePhonicsSounds/na.mp3; sourceTree = "<group>"; };
+		851ADCDD1E92A1F70000BD12 /* ne.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ne.mp3; path = ../Media/JapanesePhonicsSounds/ne.mp3; sourceTree = "<group>"; };
+		851ADCDE1E92A1F70000BD12 /* ni.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ni.mp3; path = ../Media/JapanesePhonicsSounds/ni.mp3; sourceTree = "<group>"; };
+		851ADCDF1E92A1F70000BD12 /* no.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = no.mp3; path = ../Media/JapanesePhonicsSounds/no.mp3; sourceTree = "<group>"; };
+		851ADCE01E92A1F70000BD12 /* nu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = nu.mp3; path = ../Media/JapanesePhonicsSounds/nu.mp3; sourceTree = "<group>"; };
+		851ADCE11E92A1F70000BD12 /* o.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = o.mp3; path = ../Media/JapanesePhonicsSounds/o.mp3; sourceTree = "<group>"; };
+		851ADCE21E92A1F70000BD12 /* pa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pa.mp3; path = ../Media/JapanesePhonicsSounds/pa.mp3; sourceTree = "<group>"; };
+		851ADCE31E92A1F70000BD12 /* pe.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pe.mp3; path = ../Media/JapanesePhonicsSounds/pe.mp3; sourceTree = "<group>"; };
+		851ADCE41E92A1F70000BD12 /* pi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pi.mp3; path = ../Media/JapanesePhonicsSounds/pi.mp3; sourceTree = "<group>"; };
+		851ADCE51E92A1F70000BD12 /* po.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = po.mp3; path = ../Media/JapanesePhonicsSounds/po.mp3; sourceTree = "<group>"; };
+		851ADCE61E92A1F70000BD12 /* pu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = pu.mp3; path = ../Media/JapanesePhonicsSounds/pu.mp3; sourceTree = "<group>"; };
+		851ADCE71E92A1F70000BD12 /* ra.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ra.mp3; path = ../Media/JapanesePhonicsSounds/ra.mp3; sourceTree = "<group>"; };
+		851ADCE81E92A1F70000BD12 /* re.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = re.mp3; path = ../Media/JapanesePhonicsSounds/re.mp3; sourceTree = "<group>"; };
+		851ADCE91E92A1F70000BD12 /* ri.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ri.mp3; path = ../Media/JapanesePhonicsSounds/ri.mp3; sourceTree = "<group>"; };
+		851ADCEA1E92A1F70000BD12 /* ro.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ro.mp3; path = ../Media/JapanesePhonicsSounds/ro.mp3; sourceTree = "<group>"; };
+		851ADCEB1E92A1F70000BD12 /* ru.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ru.mp3; path = ../Media/JapanesePhonicsSounds/ru.mp3; sourceTree = "<group>"; };
+		851ADCEC1E92A1F70000BD12 /* sa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = sa.mp3; path = ../Media/JapanesePhonicsSounds/sa.mp3; sourceTree = "<group>"; };
+		851ADCED1E92A1F70000BD12 /* se.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = se.mp3; path = ../Media/JapanesePhonicsSounds/se.mp3; sourceTree = "<group>"; };
+		851ADCEE1E92A1F70000BD12 /* shi.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = shi.mp3; path = ../Media/JapanesePhonicsSounds/shi.mp3; sourceTree = "<group>"; };
+		851ADCEF1E92A1F70000BD12 /* so.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = so.mp3; path = ../Media/JapanesePhonicsSounds/so.mp3; sourceTree = "<group>"; };
+		851ADCF01E92A1F70000BD12 /* su.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = su.mp3; path = ../Media/JapanesePhonicsSounds/su.mp3; sourceTree = "<group>"; };
+		851ADCF11E92A1F70000BD12 /* ta.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ta.mp3; path = ../Media/JapanesePhonicsSounds/ta.mp3; sourceTree = "<group>"; };
+		851ADCF21E92A1F70000BD12 /* te.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = te.mp3; path = ../Media/JapanesePhonicsSounds/te.mp3; sourceTree = "<group>"; };
+		851ADCF31E92A1F70000BD12 /* to.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = to.mp3; path = ../Media/JapanesePhonicsSounds/to.mp3; sourceTree = "<group>"; };
+		851ADCF41E92A1F70000BD12 /* tsu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = tsu.mp3; path = ../Media/JapanesePhonicsSounds/tsu.mp3; sourceTree = "<group>"; };
+		851ADCF51E92A1F70000BD12 /* u.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = u.mp3; path = ../Media/JapanesePhonicsSounds/u.mp3; sourceTree = "<group>"; };
+		851ADCF61E92A1F70000BD12 /* wa.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = wa.mp3; path = ../Media/JapanesePhonicsSounds/wa.mp3; sourceTree = "<group>"; };
+		851ADCF71E92A1F70000BD12 /* ya.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ya.mp3; path = ../Media/JapanesePhonicsSounds/ya.mp3; sourceTree = "<group>"; };
+		851ADCF81E92A1F70000BD12 /* yo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = yo.mp3; path = ../Media/JapanesePhonicsSounds/yo.mp3; sourceTree = "<group>"; };
+		851ADCF91E92A1F70000BD12 /* yu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = yu.mp3; path = ../Media/JapanesePhonicsSounds/yu.mp3; sourceTree = "<group>"; };
+		851ADCFA1E92A1F70000BD12 /* za.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = za.mp3; path = ../Media/JapanesePhonicsSounds/za.mp3; sourceTree = "<group>"; };
+		851ADCFB1E92A1F70000BD12 /* ze.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = ze.mp3; path = ../Media/JapanesePhonicsSounds/ze.mp3; sourceTree = "<group>"; };
+		851ADCFC1E92A1F70000BD12 /* zo.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zo.mp3; path = ../Media/JapanesePhonicsSounds/zo.mp3; sourceTree = "<group>"; };
+		851ADCFD1E92A1F70000BD12 /* zu.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = zu.mp3; path = ../Media/JapanesePhonicsSounds/zu.mp3; sourceTree = "<group>"; };
 		852CB1B01E9101DC00679D28 /* mistakeSound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = mistakeSound.mp3; path = ../Media/mistakeSound.mp3; sourceTree = "<group>"; };
-		852CB1B11E9101DC00679D28 /* oSound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = oSound1.mp3; path = ../Media/oSound1.mp3; sourceTree = "<group>"; };
-		852CB1B21E9101DC00679D28 /* oSound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = oSound2.mp3; path = ../Media/oSound2.mp3; sourceTree = "<group>"; };
-		852CB1B31E9101DC00679D28 /* oSound3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = oSound3.mp3; path = ../Media/oSound3.mp3; sourceTree = "<group>"; };
-		852CB1B41E9101DC00679D28 /* uSound1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = uSound1.mp3; path = ../Media/uSound1.mp3; sourceTree = "<group>"; };
-		852CB1B51E9101DC00679D28 /* uSound2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = uSound2.mp3; path = ../Media/uSound2.mp3; sourceTree = "<group>"; };
-		852CB1B61E9101DC00679D28 /* uSound3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = uSound3.mp3; path = ../Media/uSound3.mp3; sourceTree = "<group>"; };
 		852CB1C11E91026F00679D28 /* soundIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = soundIcon.png; path = ../img/soundIcon.png; sourceTree = "<group>"; };
 		852CB1EC1E91059900679D28 /* NiceJob.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = NiceJob.mp3; path = ../Media/NiceJob.mp3; sourceTree = "<group>"; };
 		852CB1ED1E91059900679D28 /* Wonderful.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Wonderful.mp3; path = ../Media/Wonderful.mp3; sourceTree = "<group>"; };
@@ -527,20 +645,79 @@
 		852CB1931E9101B700679D28 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				851ADCBA1E92A1F70000BD12 /* a.mp3 */,
+				851ADCBB1E92A1F70000BD12 /* ba.mp3 */,
+				851ADCBC1E92A1F70000BD12 /* be.mp3 */,
+				851ADCBD1E92A1F70000BD12 /* bi.mp3 */,
+				851ADCBE1E92A1F70000BD12 /* bo.mp3 */,
+				851ADCBF1E92A1F70000BD12 /* bu.mp3 */,
+				851ADCC01E92A1F70000BD12 /* chi.mp3 */,
+				851ADCC11E92A1F70000BD12 /* da.mp3 */,
+				851ADCC21E92A1F70000BD12 /* de.mp3 */,
+				851ADCC31E92A1F70000BD12 /* do.mp3 */,
+				851ADCC41E92A1F70000BD12 /* e.mp3 */,
+				851ADCC51E92A1F70000BD12 /* ga.mp3 */,
+				851ADCC61E92A1F70000BD12 /* ge.mp3 */,
+				851ADCC71E92A1F70000BD12 /* gi.mp3 */,
+				851ADCC81E92A1F70000BD12 /* go.mp3 */,
+				851ADCC91E92A1F70000BD12 /* gu.mp3 */,
+				851ADCCA1E92A1F70000BD12 /* ha.mp3 */,
+				851ADCCB1E92A1F70000BD12 /* he.mp3 */,
+				851ADCCC1E92A1F70000BD12 /* hi.mp3 */,
+				851ADCCD1E92A1F70000BD12 /* ho.mp3 */,
+				851ADCCE1E92A1F70000BD12 /* hu.mp3 */,
+				851ADCCF1E92A1F70000BD12 /* i.mp3 */,
+				851ADCD01E92A1F70000BD12 /* ji.mp3 */,
+				851ADCD11E92A1F70000BD12 /* ka.mp3 */,
+				851ADCD21E92A1F70000BD12 /* ke.mp3 */,
+				851ADCD31E92A1F70000BD12 /* ki.mp3 */,
+				851ADCD41E92A1F70000BD12 /* ko.mp3 */,
+				851ADCD51E92A1F70000BD12 /* ku.mp3 */,
+				851ADCD61E92A1F70000BD12 /* ma.mp3 */,
+				851ADCD71E92A1F70000BD12 /* me.mp3 */,
+				851ADCD81E92A1F70000BD12 /* mi.mp3 */,
+				851ADCD91E92A1F70000BD12 /* mo.mp3 */,
+				851ADCDA1E92A1F70000BD12 /* mu.mp3 */,
+				851ADCDB1E92A1F70000BD12 /* n.mp3 */,
+				851ADCDC1E92A1F70000BD12 /* na.mp3 */,
+				851ADCDD1E92A1F70000BD12 /* ne.mp3 */,
+				851ADCDE1E92A1F70000BD12 /* ni.mp3 */,
+				851ADCDF1E92A1F70000BD12 /* no.mp3 */,
+				851ADCE01E92A1F70000BD12 /* nu.mp3 */,
+				851ADCE11E92A1F70000BD12 /* o.mp3 */,
+				851ADCE21E92A1F70000BD12 /* pa.mp3 */,
+				851ADCE31E92A1F70000BD12 /* pe.mp3 */,
+				851ADCE41E92A1F70000BD12 /* pi.mp3 */,
+				851ADCE51E92A1F70000BD12 /* po.mp3 */,
+				851ADCE61E92A1F70000BD12 /* pu.mp3 */,
+				851ADCE71E92A1F70000BD12 /* ra.mp3 */,
+				851ADCE81E92A1F70000BD12 /* re.mp3 */,
+				851ADCE91E92A1F70000BD12 /* ri.mp3 */,
+				851ADCEA1E92A1F70000BD12 /* ro.mp3 */,
+				851ADCEB1E92A1F70000BD12 /* ru.mp3 */,
+				851ADCEC1E92A1F70000BD12 /* sa.mp3 */,
+				851ADCED1E92A1F70000BD12 /* se.mp3 */,
+				851ADCEE1E92A1F70000BD12 /* shi.mp3 */,
+				851ADCEF1E92A1F70000BD12 /* so.mp3 */,
+				851ADCF01E92A1F70000BD12 /* su.mp3 */,
+				851ADCF11E92A1F70000BD12 /* ta.mp3 */,
+				851ADCF21E92A1F70000BD12 /* te.mp3 */,
+				851ADCF31E92A1F70000BD12 /* to.mp3 */,
+				851ADCF41E92A1F70000BD12 /* tsu.mp3 */,
+				851ADCF51E92A1F70000BD12 /* u.mp3 */,
+				851ADCF61E92A1F70000BD12 /* wa.mp3 */,
+				851ADCF71E92A1F70000BD12 /* ya.mp3 */,
+				851ADCF81E92A1F70000BD12 /* yo.mp3 */,
+				851ADCF91E92A1F70000BD12 /* yu.mp3 */,
+				851ADCFA1E92A1F70000BD12 /* za.mp3 */,
+				851ADCFB1E92A1F70000BD12 /* ze.mp3 */,
+				851ADCFC1E92A1F70000BD12 /* zo.mp3 */,
+				851ADCFD1E92A1F70000BD12 /* zu.mp3 */,
 				852CB1C11E91026F00679D28 /* soundIcon.png */,
 				852CB1EC1E91059900679D28 /* NiceJob.mp3 */,
 				852CB1ED1E91059900679D28 /* Wonderful.mp3 */,
 				852CB1EE1E91059900679D28 /* Yep.mp3 */,
-				852CB1AD1E9101DC00679D28 /* aSound1.mp3 */,
-				852CB1AE1E9101DC00679D28 /* aSound2.mp3 */,
-				852CB1AF1E9101DC00679D28 /* aSound3.mp3 */,
 				852CB1B01E9101DC00679D28 /* mistakeSound.mp3 */,
-				852CB1B11E9101DC00679D28 /* oSound1.mp3 */,
-				852CB1B21E9101DC00679D28 /* oSound2.mp3 */,
-				852CB1B31E9101DC00679D28 /* oSound3.mp3 */,
-				852CB1B41E9101DC00679D28 /* uSound1.mp3 */,
-				852CB1B51E9101DC00679D28 /* uSound2.mp3 */,
-				852CB1B61E9101DC00679D28 /* uSound3.mp3 */,
 			);
 			name = Media;
 			sourceTree = "<group>";
@@ -920,22 +1097,81 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				851ADD411E92A1F70000BD12 /* zu.mp3 in Resources */,
+				851ADD371E92A1F70000BD12 /* to.mp3 in Resources */,
+				851ADD3B1E92A1F70000BD12 /* ya.mp3 in Resources */,
+				851ADD301E92A1F70000BD12 /* sa.mp3 in Resources */,
+				851ADD111E92A1F70000BD12 /* ho.mp3 in Resources */,
+				851ADD0A1E92A1F70000BD12 /* ge.mp3 in Resources */,
+				851ADD391E92A1F70000BD12 /* u.mp3 in Resources */,
+				851ADD031E92A1F70000BD12 /* bu.mp3 in Resources */,
+				851ADD041E92A1F70000BD12 /* chi.mp3 in Resources */,
+				851ADD091E92A1F70000BD12 /* ga.mp3 in Resources */,
+				851ADD2C1E92A1F70000BD12 /* re.mp3 in Resources */,
+				851ADD3C1E92A1F70000BD12 /* yo.mp3 in Resources */,
+				851ADD3F1E92A1F70000BD12 /* ze.mp3 in Resources */,
+				851ADD141E92A1F70000BD12 /* ji.mp3 in Resources */,
+				851ADD351E92A1F70000BD12 /* ta.mp3 in Resources */,
+				851ADD0D1E92A1F70000BD12 /* gu.mp3 in Resources */,
+				851ADD0E1E92A1F70000BD12 /* ha.mp3 in Resources */,
+				851ADD341E92A1F70000BD12 /* su.mp3 in Resources */,
+				851ADD151E92A1F70000BD12 /* ka.mp3 in Resources */,
+				851ADD331E92A1F70000BD12 /* so.mp3 in Resources */,
+				851ADD2F1E92A1F70000BD12 /* ru.mp3 in Resources */,
+				851ADD311E92A1F70000BD12 /* se.mp3 in Resources */,
+				851ADD171E92A1F70000BD12 /* ki.mp3 in Resources */,
+				851ADD131E92A1F70000BD12 /* i.mp3 in Resources */,
+				851ADD401E92A1F70000BD12 /* zo.mp3 in Resources */,
+				851ADD3A1E92A1F70000BD12 /* wa.mp3 in Resources */,
+				851ADD3E1E92A1F70000BD12 /* za.mp3 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				852CB1B81E9101DC00679D28 /* aSound2.mp3 in Resources */,
+				851ADD2B1E92A1F70000BD12 /* ra.mp3 in Resources */,
+				851ADD381E92A1F70000BD12 /* tsu.mp3 in Resources */,
 				852CB1F01E91059900679D28 /* Wonderful.mp3 in Resources */,
+				851ADD2A1E92A1F70000BD12 /* pu.mp3 in Resources */,
+				851ADD241E92A1F70000BD12 /* nu.mp3 in Resources */,
+				851ADD1B1E92A1F70000BD12 /* me.mp3 in Resources */,
+				851ADD121E92A1F70000BD12 /* hu.mp3 in Resources */,
+				851ADD231E92A1F70000BD12 /* no.mp3 in Resources */,
+				851ADD0C1E92A1F70000BD12 /* go.mp3 in Resources */,
+				851ADD211E92A1F70000BD12 /* ne.mp3 in Resources */,
 				852CB1F11E91059900679D28 /* Yep.mp3 in Resources */,
+				851ADD361E92A1F70000BD12 /* te.mp3 in Resources */,
+				851ADD3D1E92A1F70000BD12 /* yu.mp3 in Resources */,
+				851ADD291E92A1F70000BD12 /* po.mp3 in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
+				851ADD081E92A1F70000BD12 /* e.mp3 in Resources */,
+				851ADCFE1E92A1F70000BD12 /* a.mp3 in Resources */,
+				851ADD101E92A1F70000BD12 /* hi.mp3 in Resources */,
+				851ADD191E92A1F70000BD12 /* ku.mp3 in Resources */,
+				851ADD001E92A1F70000BD12 /* be.mp3 in Resources */,
+				851ADD321E92A1F70000BD12 /* shi.mp3 in Resources */,
+				851ADD161E92A1F70000BD12 /* ke.mp3 in Resources */,
+				851ADD251E92A1F70000BD12 /* o.mp3 in Resources */,
+				851ADD0B1E92A1F70000BD12 /* gi.mp3 in Resources */,
 				852CB1C21E91026F00679D28 /* soundIcon.png in Resources */,
-				852CB1BC1E9101DC00679D28 /* oSound2.mp3 in Resources */,
-				852CB1B71E9101DC00679D28 /* aSound1.mp3 in Resources */,
-				852CB1BF1E9101DC00679D28 /* uSound2.mp3 in Resources */,
-				852CB1C01E9101DC00679D28 /* uSound3.mp3 in Resources */,
-				852CB1B91E9101DC00679D28 /* aSound3.mp3 in Resources */,
+				851ADD1D1E92A1F70000BD12 /* mo.mp3 in Resources */,
+				851ADD2D1E92A1F70000BD12 /* ri.mp3 in Resources */,
+				851ADD181E92A1F70000BD12 /* ko.mp3 in Resources */,
+				851ADD011E92A1F70000BD12 /* bi.mp3 in Resources */,
+				851ADD051E92A1F70000BD12 /* da.mp3 in Resources */,
+				851ADD1E1E92A1F70000BD12 /* mu.mp3 in Resources */,
 				852CB1EF1E91059900679D28 /* NiceJob.mp3 in Resources */,
-				852CB1BE1E9101DC00679D28 /* uSound1.mp3 in Resources */,
-				852CB1BD1E9101DC00679D28 /* oSound3.mp3 in Resources */,
-				852CB1BB1E9101DC00679D28 /* oSound1.mp3 in Resources */,
+				851ADD021E92A1F70000BD12 /* bo.mp3 in Resources */,
+				851ADD261E92A1F70000BD12 /* pa.mp3 in Resources */,
+				851ADD0F1E92A1F70000BD12 /* he.mp3 in Resources */,
+				851ADD061E92A1F70000BD12 /* de.mp3 in Resources */,
+				851ADD2E1E92A1F70000BD12 /* ro.mp3 in Resources */,
+				851ADD201E92A1F70000BD12 /* na.mp3 in Resources */,
 				852CB1BA1E9101DC00679D28 /* mistakeSound.mp3 in Resources */,
+				851ADD271E92A1F70000BD12 /* pe.mp3 in Resources */,
+				851ADCFF1E92A1F70000BD12 /* ba.mp3 in Resources */,
+				851ADD221E92A1F70000BD12 /* ni.mp3 in Resources */,
+				851ADD281E92A1F70000BD12 /* pi.mp3 in Resources */,
+				851ADD1A1E92A1F70000BD12 /* ma.mp3 in Resources */,
+				851ADD1C1E92A1F70000BD12 /* mi.mp3 in Resources */,
+				851ADD1F1E92A1F70000BD12 /* n.mp3 in Resources */,
+				851ADD071E92A1F70000BD12 /* do.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

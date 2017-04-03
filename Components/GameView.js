@@ -12,7 +12,8 @@ import {
   StyleSheet,
   View,
   Text,
-  Dimensions
+  Dimensions,
+  Button,
 } from 'react-native';
 import { NavigationActions } from 'react-navigation'
 import LetterView from './LetterView';
@@ -66,7 +67,8 @@ var letterViewPositions = {
   'topRight':2,
   'bottomLeft':3,
   'bottomRight':4,
-}
+};
+
 
 //var currentLetter = 'A';
 
@@ -85,6 +87,7 @@ export default class GameView extends Component {
     //this.data = new DataSource();
     this.state = {
       activeScoreTouch: false,
+      //isDifficult: false,
     };
     this.gameLogic.data.currentRowCharacters = this.props.navigation.state.params.currentRowCharacters;
     this.gameLogic.data.currentCharacter = this.props.navigation.state.params.currentCharacter;//this.currentLetter;
@@ -98,7 +101,7 @@ export default class GameView extends Component {
       state.params.currentRow[4] + ' ' +
       state.params.currentRow[5]
     }`,
-    header: ({goBack, state})=>({
+    header: ({goBack, state, setParams})=>({
       visible: true,
       style: navStyles.header,
       titleStyle: navStyles.letterHeader,
@@ -111,8 +114,17 @@ export default class GameView extends Component {
           >
           Back
         </Text>
-            ),
+      ),
+      right: (
+        <Button
+          title = {state.params.isDifficult?'Hard':'Easy'}
+          onPress = {()=>setParams({ isDifficult: !state.params.isDifficult  })}
+        />
+
+
+      ),
     }),
+
   };
 
   shouldShowPosition(position:string){
@@ -133,11 +145,29 @@ export default class GameView extends Component {
           activeScoreTouch: true,
         });
         this.gameLogic.scoreCount = ++this.gameLogic.scoreCount
-        var row = this.gameLogic.data.currentRowCharacters;
-        var character = this.gameLogic.data.currentCharacter;
-        if (row.indexOf(character) == row.length - 1){
-          this.gameLogic.data.currentCharacter = row[0];
-        }else this.gameLogic.data.currentCharacter = row[row.indexOf(character) + 1];
+        var consonant = this.gameLogic.data.currentLeftAxisConsonant;
+        if (consonant != 'n' && consonant != 'W'){
+          do{ //correct for W, Y, and n
+            var row = this.gameLogic.data.currentRowCharacters;
+            var character = this.gameLogic.data.currentCharacter;
+            if (row.indexOf(character) == row.length - 1){
+              this.gameLogic.data.currentCharacter = row[0];
+            }else this.gameLogic.data.currentCharacter = row[row.indexOf(character) + 1];
+          }while(this.gameLogic.data.currentCharacter == '');
+        }else if (this.gameLogic.data.currentLeftAxisConsonant == 'n'){
+          this.gameLogic.data.currentCharacter = this.gameLogic.data.currentRowCharacters[2];
+        }else if (this.gameLogic.data.currentLeftAxisConsonant == 'W'){
+          var row = this.gameLogic.data.currentRowCharacters;
+          var character = this.gameLogic.data.currentCharacter;
+          switch (this.gameLogic.data.currentCharacter) {
+            case row[0]:
+              this.gameLogic.data.currentCharacter = row[4];
+              break;
+            default:
+              this.gameLogic.data.currentCharacter = row[0];
+
+          }
+        }
         this.updateRender();
       return previousCount + 1
     }
@@ -197,12 +227,14 @@ export default class GameView extends Component {
     var topRowZIndex = this.isTopRowZIndexPriority()?1:0;
     var bottomRowZIndex = this.isTopRowZIndexPriority()?0:1;
 
+    var isDifficult = this.props.navigation.state.params.isDifficult;
     return (
       <View style = {styles.bigContainer}>
         <HUDView scoreCount = {this.gameLogic.scoreCount} currentCharacter = {this.gameLogic.data.currentCharacter}/>
         <View style = {styles.container}>
           <View style = {[styles.letterRow, {zIndex: topRowZIndex}]}>
             <LetterView
+              isDifficult = {isDifficult}
               correctLetterSound = {correctSound}
               wrongLetterSound = {this.gameLogic.data.wrongCharacterSoundFiles[0]}
               onPress = {this.updateCount.bind(this, letter, 'topLeft', this.gameLogic.scoreCount)}
@@ -215,6 +247,7 @@ export default class GameView extends Component {
               startReveal = {this.gameLogic.startRandomLetterReveal.bind(this.gameLogic.that, this.updateRender.bind(this), this.updateActiveScoreTouch.bind(this), true, correctDelayTime)}
             />
             <LetterView
+              isDifficult = {isDifficult}
               correctLetterSound = {correctSound}
               wrongLetterSound = {this.gameLogic.data.wrongCharacterSoundFiles[0]}
               onPress = {this.updateCount.bind(this, letter, 'topRight', this.gameLogic.scoreCount)}
@@ -229,6 +262,7 @@ export default class GameView extends Component {
           </View>
           <View style = {[styles.letterRow, {zIndex: bottomRowZIndex}]}>
             <LetterView
+              isDifficult = {isDifficult}
               correctLetterSound = {correctSound}
               wrongLetterSound = {this.gameLogic.data.wrongCharacterSoundFiles[0]}
               onPress = {this.updateCount.bind(this, letter, 'bottomLeft', this.gameLogic.scoreCount)}
@@ -241,6 +275,7 @@ export default class GameView extends Component {
               startReveal = {this.gameLogic.startRandomLetterReveal.bind(this.gameLogic.that, this.updateRender.bind(this), this.updateActiveScoreTouch.bind(this), true, correctDelayTime)}
             />
             <LetterView
+              isDifficult = {isDifficult}
               correctLetterSound = {correctSound}
               wrongLetterSound = {this.gameLogic.data.wrongCharacterSoundFiles[0]}
               onPress = {this.updateCount.bind(this, letter, 'bottomRight', this.gameLogic.scoreCount)}
