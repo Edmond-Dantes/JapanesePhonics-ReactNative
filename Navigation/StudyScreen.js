@@ -54,9 +54,19 @@ export default class StudyScreen extends Component {
               ),
       }),
     };
+
+  componentDidMount(){
+    var currentRow = this.props.navigation.state.params.currentRow;
+    var cloneRow = currentRow.clone().splice(1,5);
+    this.gameLogic.data.loadRowCharacterSounds(currentRow[0], cloneRow);
+  }
+
+
   render() {
     const { navigate } = this.props.navigation;
     var swipeRightText = '>>>';
+    var currentRow = this.props.navigation.state.params.currentRow;
+    var kana = this.props.navigation.state.params.kana;
     //console.log(this.props.navigation.state.key);
     //var letterArr = this.props.navigation.state.params.letterArr;
     return (
@@ -67,7 +77,7 @@ export default class StudyScreen extends Component {
             <View style = {styles.letterRow}>
               <Text
                 style = {styles.letter}
-                onPress = {this.gameLogic.data.playStudyLetterSound.bind(this.gameLogic.data.that,rowData,true)}
+                onPress = {this.gameLogic.data.playStudyCharacterSound.bind(this.gameLogic.data.that, kana, currentRow[0],rowData,true)}
                 >
                   {rowData}
               </Text>

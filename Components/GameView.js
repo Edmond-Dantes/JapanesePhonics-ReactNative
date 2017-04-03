@@ -146,6 +146,9 @@ export default class GameView extends Component {
     //this.loadSoundFiles();
   }
   componentDidMount(){
+    var currentRow = this.props.navigation.state.params.currentRow;
+    var cloneRow = currentRow.clone().splice(1,5);
+    this.gameLogic.data.loadRowCharacterSounds(currentRow[0], cloneRow);
     //this.startRandomLetterReveal();
     this.gameLogic.data.currentRowCharacters = this.props.navigation.state.params.currentRowCharacters;
     this.gameLogic.data.currentCharacter = this.props.navigation.state.params.currentCharacter;//this.currentLetter;
@@ -189,7 +192,7 @@ export default class GameView extends Component {
 
     const correctDelayTime = 1000;
     const correctSoundIndex = this.gameLogic.randomCorrectSoundIndex
-    var correctSound = this.gameLogic.data.correctLetterSoundFiles[correctSoundIndex]
+    var correctSound = this.gameLogic.data.correctCharacterSoundFiles[correctSoundIndex]
 
     var topRowZIndex = this.isTopRowZIndexPriority()?1:0;
     var bottomRowZIndex = this.isTopRowZIndexPriority()?0:1;
@@ -201,7 +204,7 @@ export default class GameView extends Component {
           <View style = {[styles.letterRow, {zIndex: topRowZIndex}]}>
             <LetterView
               correctLetterSound = {correctSound}
-              wrongLetterSound = {this.gameLogic.data.wrongLetterSoundFiles[0]}
+              wrongLetterSound = {this.gameLogic.data.wrongCharacterSoundFiles[0]}
               onPress = {this.updateCount.bind(this, letter, 'topLeft', this.gameLogic.scoreCount)}
               position = 'topLeft'
               backgroundColor = {'royalblue'}
@@ -213,7 +216,7 @@ export default class GameView extends Component {
             />
             <LetterView
               correctLetterSound = {correctSound}
-              wrongLetterSound = {this.gameLogic.data.wrongLetterSoundFiles[0]}
+              wrongLetterSound = {this.gameLogic.data.wrongCharacterSoundFiles[0]}
               onPress = {this.updateCount.bind(this, letter, 'topRight', this.gameLogic.scoreCount)}
               position = 'topRight'
               backgroundColor = 'goldenrod'
@@ -227,7 +230,7 @@ export default class GameView extends Component {
           <View style = {[styles.letterRow, {zIndex: bottomRowZIndex}]}>
             <LetterView
               correctLetterSound = {correctSound}
-              wrongLetterSound = {this.gameLogic.data.wrongLetterSoundFiles[0]}
+              wrongLetterSound = {this.gameLogic.data.wrongCharacterSoundFiles[0]}
               onPress = {this.updateCount.bind(this, letter, 'bottomLeft', this.gameLogic.scoreCount)}
               position = 'bottomLeft'
               backgroundColor = 'tomato'
@@ -239,7 +242,7 @@ export default class GameView extends Component {
             />
             <LetterView
               correctLetterSound = {correctSound}
-              wrongLetterSound = {this.gameLogic.data.wrongLetterSoundFiles[0]}
+              wrongLetterSound = {this.gameLogic.data.wrongCharacterSoundFiles[0]}
               onPress = {this.updateCount.bind(this, letter, 'bottomRight', this.gameLogic.scoreCount)}
               position = 'bottomRight'
               backgroundColor = 'seagreen'

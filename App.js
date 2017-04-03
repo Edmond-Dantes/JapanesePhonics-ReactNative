@@ -100,7 +100,7 @@ const App = StackNavigator({
   },
   mode: 'card',
   headerMode: 'screen',
-  onTransitionStart: ()=>console.log('HUH'),
+  //onTransitionStart: ()=>console.log('HUH'),
   //cardStyle: styles.card,
 
 },

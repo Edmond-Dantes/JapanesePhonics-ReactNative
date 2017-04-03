@@ -18,6 +18,7 @@ function getNewRandomInt(min, max, previousRandomNumber){
   return randomNumber
 }
 
+/*
 function createChartData(array){
   var vowelsArray = ['a', 'i', 'u', 'e', 'o'];
   var tempObject = {
@@ -31,21 +32,45 @@ function createChartData(array){
 
   return tempObject;
 }
+*/
 
 export default class DataSource{
   that = this;
 
   soundFiles = [];
-  correctLetterSoundFiles = [];
-  wrongLetterSoundFiles = [];
+  //soundFileNames =[];
+  correctCharacterSoundFiles = [];
+  wrongCharacterSoundFiles = [];
   currentStudySound:Sound;
   currentCharacter = '';
   currentRowCharacters = [];
-  //letterArray = ['A','O','U']; // change in this and GameLogic
+
+
+  currentLeftAxisConsonant = '';
+  characterChartLeftAxis = ['NA','K','G','S','Z','T','D','N','H','B','P','M','Y','R','W','n'];
+  characterSoundFilesAvailable = {//Monographs only
+    //a, i, u, e, o
+    NA:['a.mp3', 'i.mp3', 'u.mp3', 'e.mp3', 'o.mp3'], //'∅'
+    K:['ka.mp3', 'ki.mp3', 'ku.mp3', 'ke.mp3', 'ko.mp3'],
+    G:['ga.mp3', 'gi.mp3', 'gu.mp3', 'ge.mp3', 'go.mp3'],
+    S:['sa.mp3', 'si.mp3', 'su.mp3', 'se.mp3', 'so.mp3'],
+    Z:['za.mp3', 'zi.mp3', 'zu.mp3', 'ze.mp3', 'zo.mp3'],
+    T:['ta.mp3', 'chi.mp3', 'tsu.mp3', 'te.mp3', 'to.mp3'],
+    D:['da.mp3', 'ji.mp3', 'zu.mp3', 'de.mp3', 'do.mp3'],
+    N:['na.mp3', 'ni.mp3', 'nu.mp3', 'ne.mp3', 'no.mp3'],
+    H:['ha.mp3', 'hi.mp3', 'hu.mp3', 'he.mp3', 'ho.mp3'],
+    B:['ba.mp3', 'bi.mp3', 'bu.mp3', 'be.mp3', 'bo.mp3'],
+    P:['pa.mp3', 'pi.mp3', 'pu.mp3', 'pe.mp3', 'po.mp3'],
+    M:['ma.mp3', 'mi.mp3', 'mu.mp3', 'me.mp3', 'mo.mp3'],
+    Y:['ya.mp3', '', 'yu.mp3', '', 'yo.mp3'],
+    R:['ra.mp3', 'ri.mp3', 'ru.mp3', 're.mp3', 'ro.mp3'],
+    W:['wa.mp3', '', '', '', 'o.mp3'],
+    n:['','','n.mp3','',''],
+  };
 
   hiragana = [//Monographs only
     //a, i, u, e, o
-    [' ','あ', 'い', 'う', 'え', 'お'], //'∅'
+    ['NA','あ', 'い', 'う', 'え', 'お'], //'∅'
     ['K','か', 'き', 'く', 'け', 'こ'],
     ['G','が', 'ぎ', 'ぐ', 'げ', 'ご'],
     ['S','さ', 'し', 'す', 'せ', 'そ'],
@@ -65,7 +90,7 @@ export default class DataSource{
 
   katakana = [//Monographs only
     //a, i, u, e, o
-    [' ','ア', 'イ', 'ウ', 'エ', 'オ'], //'∅'
+    ['NA','ア', 'イ', 'ウ', 'エ', 'オ'], //'∅'
     ['K','カ', 'キ', 'ク', 'ケ', 'コ'],
     ['G','ガ', 'ギ', 'グ', 'ゲ', 'ゴ'],
     ['S','サ', 'シ', 'ス', 'セ', 'ソ'],
@@ -110,35 +135,65 @@ export default class DataSource{
     this.loadSoundFiles();
   }
 
+  loadRowCharacterSounds(rowConsonant:string, characterSoundArray){ //from a single row
+    this.currentLeftAxisConsonant = rowConsonant;
+    var row = rowConsonant;
+    if (row == ' '){
+      row = 'NA';
+    }
+    //var sounds = [aSounds, oSounds, uSounds];
+    for (var i =0; i < characterSoundArray.length; i++){
+      switch (row) {
+        case row == 'Y' && (i == 1 || i == 3):
+          break;
+        case row == 'W' && (i == 1 || i == 2 || i == 3):
+          break;
+        case row == 'n' && i != 2:
+          break;
+        default:
+          console.log(this.characterSoundFilesAvailable[row][i]);
+          /*var newSound = new Sound(this.characterSoundFilesAvailable[row][i], Sound.MAIN_BUNDLE, (error) => {
+            if (error) {
+              console.log('failed to load the sound', error);
+              return;
+            }
+          // loaded successfully
+          //console.log('duration in seconds: ' + newSound.getDuration() + 'number of channels: ' + newSound.getNumberOfChannels());
+          });
+          this.soundFiles.push(newSound);*/
+      }
+    }
+  }
+
   loadCorrectSound(){
     //load wrong letter sound
-    var correctLetterSound = ['NiceJob.mp3','Wonderful.mp3','Yep.mp3'];
-    for (var i =0; i < correctLetterSound.length; i++){
-      var correctSound = new Sound(correctLetterSound[i], Sound.MAIN_BUNDLE, (error) => {
+    var correctCharacterSound = ['NiceJob.mp3','Wonderful.mp3','Yep.mp3'];
+    for (var i =0; i < correctCharacterSound.length; i++){
+      var correctSound = new Sound(correctCharacterSound[i], Sound.MAIN_BUNDLE, (error) => {
         if (error) {
           console.log('failed to load the sound', error);
           return;
         }
       // loaded successfully
-      console.log('duration in seconds: ' + correctSound.getDuration() + 'number of channels: ' + correctSound.getNumberOfChannels());
+      //console.log('duration in seconds: ' + correctSound.getDuration() + 'number of channels: ' + correctSound.getNumberOfChannels());
       });
-      this.correctLetterSoundFiles.push(correctSound);
+      this.correctCharacterSoundFiles.push(correctSound);
     }
   }
 
   loadWrongSound(){
     //load wrong letter sound
-    var wrongLetterSound = ['mistakeSound.mp3']
-    for (var i =0; i < wrongLetterSound.length; i++){
-      var wrongSound = new Sound(wrongLetterSound[i], Sound.MAIN_BUNDLE, (error) => {
+    var wrongCharacterSound = ['mistakeSound.mp3']
+    for (var i =0; i < wrongCharacterSound.length; i++){
+      var wrongSound = new Sound(wrongCharacterSound[i], Sound.MAIN_BUNDLE, (error) => {
         if (error) {
           console.log('failed to load the sound', error);
           return;
         }
       // loaded successfully
-      console.log('duration in seconds: ' + wrongSound.getDuration() + 'number of channels: ' + wrongSound.getNumberOfChannels());
+      //console.log('duration in seconds: ' + wrongSound.getDuration() + 'number of channels: ' + wrongSound.getNumberOfChannels());
       });
-      this.wrongLetterSoundFiles.push(wrongSound);
+      this.wrongCharacterSoundFiles.push(wrongSound);
     }
   }
 
@@ -146,12 +201,8 @@ export default class DataSource{
     this.loadCorrectSound();
     this.loadWrongSound();
 
-
-
-
-    //Need to change and update
-
     /*
+    // can use for something
     //Use this instead of arrays
     for (var key in p) {
       if (p.hasOwnProperty(key)) {
@@ -160,58 +211,32 @@ export default class DataSource{
     }
     */
 
-    /*
 
-    //load letter sounds
-
-    var aSounds = ['aSound1.mp3','aSound2.mp3','aSound3.mp3'];
-    var oSounds = ['oSound1.mp3','oSound2.mp3','oSound3.mp3'];
-    var uSounds = ['uSound1.mp3','uSound2.mp3','uSound3.mp3'];
-
-
-    var sounds = [aSounds, oSounds, uSounds];
-    for (var i =0; i < sounds.length; i++){
-      var tempArray = [];
-      for (var j =0; j < sounds[i].length; j++){
-        var newSound = new Sound(sounds[i][j], Sound.MAIN_BUNDLE, (error) => {
-          if (error) {
-            console.log('failed to load the sound', error);
-            return;
-          }
-        // loaded successfully
-        console.log('duration in seconds: ' + newSound.getDuration() + 'number of channels: ' + newSound.getNumberOfChannels());
-        });
-        tempArray.push(newSound);
-      }
-      this.soundFiles.push(tempArray);
-    }
-    */
   }
 
-  playStudyLetterSound(letter, reset?:bool){
-    //need to update and add Japanese Phonics sounds
-
-    /*
-    if (this.currentStudySound && reset){
-      this.currentStudySound.stop();
+  playStudyCharacterSound(kana, consonant, character, reset?:bool){
+    var kanaChart;
+    if (kana == 'Katakana'){
+      kanaChart = this.katakana;
+    }else {
+      kanaChart = this.hiragana;
     }
-    var soundConvert = {'A':0, 'O':1, 'U':2};
-    var soundIndex = soundConvert[letter];
-    var randomSoundVersion = randomInt(0, this.soundFiles[soundIndex].length - 1);
-    //play the sound
-    this.soundFiles[soundIndex][randomSoundVersion].play();
-    this.currentStudySound = this.soundFiles[soundIndex][randomSoundVersion];
-    */
+    var chartConsonantIndex = this.characterChartLeftAxis.indexOf(consonant);
+    var soundIndex = kanaChart[chartConsonantIndex].indexOf(character) - 1;
+    console.log(this.characterSoundFilesAvailable[consonant][soundIndex]);
+    //play sound
+    //this.soundFiles[soundIndex].play();
+    //this.currentStudySound = this.soundFiles[soundIndex];
+
   }
 
-  playLetterSound(soundIndex){
-    //UNCOMMENT WHEN UPDATED
+  playCharacterSound(soundIndex){
+    //console.log(soundIndex);//this.currentRowCharacters[soundIndex]);
+    console.log(this.characterSoundFilesAvailable[this.currentLeftAxisConsonant][soundIndex]);
 
-    /*
-    var randomSoundVersion = randomInt(0, this.soundFiles[soundIndex].length - 1);
     //play the sound
-    this.soundFiles[soundIndex][randomSoundVersion].play();
-    */
+    //this.soundFiles[soundIndex].play();
+
   }
 
 

@@ -35,7 +35,7 @@ export default class PlayOrStudyScreen extends Component {
       tintColor: 'tomato',
       left: (
         <Text onPress = {()=>{goBack();
-        console.log(state);
+        //console.log(state);
         state.params.returnScreen();
       }}
           >
@@ -45,12 +45,10 @@ export default class PlayOrStudyScreen extends Component {
     }),
   };
 
-  getCurrentRow(){
-    return this.currentRow;
-  }
+
 
   componentDidMount(){
-    this.currentRow = this.props.navigation.state.params.currentRow;
+    //this.currentRow = this.props.navigation.state.params.currentRow;
   }
 
   render(){
@@ -114,7 +112,7 @@ export default class PlayOrStudyScreen extends Component {
               style = {navStyles.bodyItemText}
               onPress = {() => {
                 //this._moveScreenWhenLeaving();
-                navigate('Study', {currentRow:rowData});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
+                navigate('Study', {currentRow:rowData, kana: this.props.navigation.state.params.kana});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
                 //this._moveScreenWhenReturned();
               }}
               >

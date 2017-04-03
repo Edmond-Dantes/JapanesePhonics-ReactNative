@@ -49,11 +49,12 @@ class ChartTitleRow extends Component{
 
 class Row extends Component{
   render(){
+    var leftAxis = this.props.rowData[0] == 'NA' ? '' : this.props.rowData[0];
     return (
       <TouchableOpacity onPress = {this.props.onPress}>
         <View style = {styles.row}>
           <View style = {{alignSelf: 'center', width: 17}}>
-            <Text>{this.props.rowData[0]}</Text>
+            <Text>{leftAxis}</Text>
           </View>
           <View style = {[styles.rowElement,{borderLeftWidth:2}]}>
             <Text style = {styles.letter}> {this.props.rowData[1]} </Text>
@@ -99,7 +100,7 @@ export default class HiraganaScreen extends Component {
   };
 
   componentWillUnmount(){
-    console.log("UNMOUNTED MS");
+    //console.log("UNMOUNTED MS");
   }
 
   _moveScreenWhenLeaving(){
@@ -126,7 +127,7 @@ export default class HiraganaScreen extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    var swipeRightText = '>>> Swipe';
+    var swipeRightText = '>>> Swipe Right for Katakana   or   Scroll Down for more ^^^';
 
     //console.log(this.props.navigation.state.key);
     //var letterArr = this.props.navigation.state.params.letterArr;
@@ -148,7 +149,7 @@ export default class HiraganaScreen extends Component {
             rowData = {rowData}
             onPress = {() => {
               this._moveScreenWhenLeaving();
-              navigate('PlayOrStudy', {currentRow:rowData, returnScreen:this._moveScreenWhenReturned.bind(this)});
+              navigate('PlayOrStudy', {currentRow:rowData, kana:'Hiragana', returnScreen:this._moveScreenWhenReturned.bind(this)});
               //this._moveScreenWhenReturned();
             }}
           />
@@ -228,9 +229,10 @@ const styles = StyleSheet.create({
     margin: 10,
   },
   swipe: {
-    paddingLeft: 20,
-    alignSelf: 'flex-start',
-    fontSize: 20,
+    //position: 'absolute',
+    paddingLeft: deviceWidth/20,
+    alignSelf: 'center',
+    fontSize: 10,
     color: 'darkslategray',//'ghostwhite',//'transparent'//'darkslategray'//'black'//"beige",
     textShadowColor: 'black',
     textShadowRadius: 1,
