@@ -109,10 +109,12 @@ export default class GameView extends Component {
       left: (
         <Button
           title={'Back'}
-          onPress = {()=>{goBack();
-        //console.log(state);
-        state.params.returnScreen();
-      }}
+          onPress = {()=>{
+            goBack();
+            //console.log(state);
+            //state.params.returnScreen();
+          }
+        }
         />
 
       ),

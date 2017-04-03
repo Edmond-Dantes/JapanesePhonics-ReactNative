@@ -7,6 +7,7 @@ import {
   Dimensions,
   ListView,
   Image,
+  Button,
 } from 'react-native';
 import DataSource from '../DataSource/DataSource';
 import GameLogic from '../GameLogic/GameLogic';
@@ -46,10 +47,12 @@ export default class StudyScreen extends Component {
         left: (
           <Button
             title={'Back'}
-            onPress = {()=>{goBack();
-          //console.log(state);
-          state.params.returnScreen();
-        }}
+            onPress = {()=>{
+              goBack();
+              //console.log(state);
+            //state.params.returnScreen();
+            }
+          }
           />
               ),
       }),
