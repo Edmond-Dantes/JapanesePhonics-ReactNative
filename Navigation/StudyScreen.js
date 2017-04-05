@@ -8,6 +8,7 @@ import {
   ListView,
   Image,
   Button,
+  TouchableWithoutFeedback,
 } from 'react-native';
 import DataSource from '../DataSource/DataSource';
 import GameLogic from '../GameLogic/GameLogic';
@@ -67,7 +68,6 @@ export default class StudyScreen extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    var swipeRightText = '>>>';
     var currentRow = this.props.navigation.state.params.currentRow;
     var kana = this.props.navigation.state.params.kana;
     //console.log(this.props.navigation.state.key);
@@ -77,19 +77,24 @@ export default class StudyScreen extends Component {
         <ListView contentContainerStyle = {styles.listViewStyle}
           dataSource={this.state.dataSource}
           renderRow={(rowData) => (
-            <View style = {styles.letterRow}>
-              <Text
-                style = {styles.letter}
-                onPress = {this.gameLogic.data.playStudyCharacterSound.bind(this.gameLogic.data.that, kana, currentRow[0],rowData,true)}
-                >
-                  {rowData}
-              </Text>
-          <Image
-            style = {{width: 40, height: 35}}
-            source = {(rowData == '')?null:require('../img/soundIcon.png')}/>
-        </View>)}
+            <View style = {{height: deviceHeight * .13, /*backgroundColor:'green'*/}}>
+              <View style = {{height: deviceHeight * .11, /*backgroundColor:'blue'*/}}>
+                <TouchableWithoutFeedback style = {{height: deviceHeight * .05}}
+                  onPress = {this.gameLogic.data.playStudyCharacterSound.bind(this.gameLogic.data.that, kana, currentRow[0],rowData,true)}
+                  >
+                  <View style = {styles.letterRow}>
+                    <Text style = {styles.letter}>
+                      {rowData}
+                    </Text>
+                    <Image
+                      style = {{width: 40, height: 35}}
+                      source = {(rowData == '')?null:require('../img/soundIcon.png')}/>
+                  </View>
+                </TouchableWithoutFeedback>
+              </View>
+            </View>
+      )}
         />
-        <Text style = {styles.swipe}> {swipeRightText} </Text>
       </View>
 
 
@@ -103,6 +108,7 @@ export default class StudyScreen extends Component {
 const styles = StyleSheet.create({
   listViewStyle:{
     width: deviceWidth,
+    alignItems: 'center',
   },
   container:{
     justifyContent: 'center',
@@ -133,6 +139,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',//'space-around',
+    width: deviceWidth * .5,
+    height: deviceHeight * .05,
   },
 
 });

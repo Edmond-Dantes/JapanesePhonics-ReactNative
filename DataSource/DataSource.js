@@ -167,7 +167,7 @@ export default class DataSource{
 
   loadCorrectSound(){
     //load wrong letter sound
-    var correctCharacterSound = ['NiceJob.mp3','Wonderful.mp3','Yep.mp3'];
+    var correctCharacterSound = ['sekai.mp3','sonotoori.mp3','subarashi.mp3'];
     for (var i =0; i < correctCharacterSound.length; i++){
       var correctSound = new Sound(correctCharacterSound[i], Sound.MAIN_BUNDLE, (error) => {
         if (error) {

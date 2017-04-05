@@ -8,6 +8,7 @@ import {
   ListView,
   Animated,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   Button,
   //LayoutAnimation,
 } from 'react-native';
@@ -50,6 +51,18 @@ export default class PlayOrStudyScreen extends Component {
 
   componentDidMount(){
     //this.currentRow = this.props.navigation.state.params.currentRow;
+  }
+
+  _navigateToGameScreen(navigate,rowData){
+    //this._moveScreenWhenLeaving();
+    navigate('Game', {isDifficult:false, currentRow:rowData, currentRowCharacters:rowData.clone().splice(1,5), currentCharacter: (rowData[0] != 'n')?rowData[1]:rowData[3]});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
+    //this._moveScreenWhenReturned();
+  }
+
+  _navigateToStudyScreen(navigate,rowData){
+    //this._moveScreenWhenLeaving();
+    navigate('Study', {currentRow:rowData, kana: this.props.navigation.state.params.kana});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
+    //this._moveScreenWhenReturned();
   }
 
   render(){
@@ -96,30 +109,24 @@ export default class PlayOrStudyScreen extends Component {
         <View style ={navStyles.body}>
           <Text style ={{paddingLeft: checkForNStyle}}> {titleText} </Text>
 
-          <View style = {navStyles.bodyItems}>
-            <Text
-              style = {navStyles.bodyItemText}
-              onPress = {() => {
-                //this._moveScreenWhenLeaving();
-                navigate('Game', {isDifficult:false, currentRow:rowData, currentRowCharacters:rowData.clone().splice(1,5), currentCharacter: (rowData[0] != 'n')?rowData[1]:rowData[3]});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
-                //this._moveScreenWhenReturned();
-              }}
-              >
-                Play
+          <TouchableWithoutFeedback
+            onPress = {this._navigateToGameScreen.bind(this,navigate,rowData)}
+            >
+            <View style = {navStyles.bodyItems}>
+              <Text style = {navStyles.bodyItemText}>
+                  Play
               </Text>
-          </View>
+            </View>
+          </TouchableWithoutFeedback>
+          <TouchableWithoutFeedback
+            onPress = {this._navigateToStudyScreen.bind(this,navigate,rowData)}
+            >
           <View style = {navStyles.bodyItems}>
-            <Text
-              style = {navStyles.bodyItemText}
-              onPress = {() => {
-                //this._moveScreenWhenLeaving();
-                navigate('Study', {currentRow:rowData, kana: this.props.navigation.state.params.kana});//, returnScreen:this._moveScreenWhenReturned.bind(this)});
-                //this._moveScreenWhenReturned();
-              }}
-              >
+            <Text style = {navStyles.bodyItemText}>
                 Study
-              </Text>
+            </Text>
           </View>
+          </TouchableWithoutFeedback>
         </View>
 
     );
