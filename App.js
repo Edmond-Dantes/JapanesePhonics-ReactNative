@@ -4,7 +4,8 @@ import React, { Component } from 'react';
     StyleSheet,
     Text,
     View,
-    Dimensions
+    Dimensions,
+    Animated,
   } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import { TabNavigator, TabView } from 'react-navigation';
@@ -15,15 +16,14 @@ import HiraganaScreen from "./Navigation/HiraganaScreen";
 import PlayOrStudyScreen from "./Navigation/PlayOrStudyScreen";
 import StudyScreen from "./Navigation/StudyScreen";
 
+import codePush from "react-native-code-push";
+
 
 export default class JapanesePhonics extends Component {
 
-
-
-
   render() {
     return (
-      <App/>
+      <App />
     );
   }
 }
@@ -97,17 +97,25 @@ const App = StackNavigator({
       titleStyle: styles.letter,
       tintColor: 'tomato',
     },
+    cardstack:{
+      gesturesEnabled: false,
+    }
   },
   mode: 'card',
   headerMode: 'screen',
-  //onTransitionStart: ()=>console.log('HUH'),
+  //onTransitionStart: (transitionProps, prevTransitionProps)=>(),
+  //render: ()=>console.log('render prop'),
   //cardStyle: styles.card,
 
 },
 );
+/*
+App.router = {
+  ...App.router,
 
+}
+*/
 
-
-
+JapanesePhonics = codePush(JapanesePhonics);
 
 AppRegistry.registerComponent('JapanesePhonics', ()=> JapanesePhonics);

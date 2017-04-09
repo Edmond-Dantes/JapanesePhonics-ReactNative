@@ -40,14 +40,17 @@ export default class PlayOrStudyScreen extends Component {
           title={'Back'}
           onPress = {()=>{goBack();
         //console.log(state);
-        state.params.returnScreen();
+        //state.params.returnScreen();
       }}
         />
             ),
     }),
   };
 
-
+  componentWillUnmount(){
+    //console.log(this.props);
+    //this.props.navigation.state.params.returnScreen();
+  }
 
   componentDidMount(){
     //this.currentRow = this.props.navigation.state.params.currentRow;
@@ -152,7 +155,7 @@ const navStyles = StyleSheet.create({
   },
   body:{
     flex: 1,
-    //justifyContent: 'center',
+    justifyContent: 'flex-start',//'center',
     alignItems: 'center',
     backgroundColor: 'beige',
     height: deviceHeight - deviceHeight * .06,
@@ -163,6 +166,12 @@ const navStyles = StyleSheet.create({
   },
   bodyItemText:{
     fontSize: 100,
+    textShadowColor: 'gray',
+    textShadowRadius: 10,
+    textShadowOffset: {
+      width: 0,
+      height: 10,
+    },
   }
 
 });

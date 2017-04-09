@@ -8,6 +8,7 @@ import {
   ListView,
   Animated,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   //LayoutAnimation,
 } from 'react-native';
 import DataSource from '../DataSource/DataSource';
@@ -48,31 +49,103 @@ class ChartTitleRow extends Component{
 }
 
 class Row extends Component{
+  //borderWidth =
+  //pressed = false;
+  constructor(props){
+    super(props);
+    this.state = {
+      pressed : new Animated.Value(0),
+      borderRightWidth: StyleSheet.flatten(styles.chartBody).borderRightWidth,//new Animated.Value(0),
+      borderBottomWidth: StyleSheet.flatten(styles.chartBody).borderBottomWidth,//new Animated.Value(0),
+      marginTop: 0,//StyleSheet.flatten(styles.chartBody).,
+    };
+  }
+
+  _onPressIn(){
+
+    //console.log('_onPressIn()');
+    this.setState({
+      pressed: 1,
+      borderRightWidth: 2,
+      borderBottomWidth: 0,
+      marginTop: 1,
+    });
+    /*Animated.timing(                            // Animate value over time
+      this.state.pressed,                      // The value to drive
+      {
+        toValue: 1,
+        duration:0,                             // Animate to final value of 1
+      }
+    ).start();
+    */
+  }
+
+  _onPressOut(){
+    this.setState({
+      pressed: 0,
+      borderRightWidth:StyleSheet.flatten(styles.chartBody).borderRightWidth,
+      borderBottomWidth:StyleSheet.flatten(styles.chartBody).borderBottomWidth,
+      marginTop: 0,
+    });
+    /*
+    Animated.timing(                            // Animate value over time
+      this.state.pressed,                      // The value to drive
+      {
+        toValue: 0,                             // Animate to final value of 1
+        duration:0,
+      }
+    ).start();
+    */
+  }
+
+  componentDidMount(){/*
+    this.state.borderRightWidth = this.state.pressed.interpolate({
+      inputRange: [0, 1],
+      outputRange: [StyleSheet.flatten(styles.chartBody).borderRightWidth, 0],
+    });
+    this.state.borderBottomWidth = this.state.pressed.interpolate({
+      inputRange: [0, 1],
+      outputRange: [StyleSheet.flatten(styles.chartBody).borderBottomWidth, 0],
+    });*/
+  }
+
   render(){
     var leftAxis = this.props.rowData[0] == 'NA' ? '' : this.props.rowData[0];
+
+
+
+
     return (
-      <TouchableOpacity onPress = {this.props.onPress}>
+      <TouchableWithoutFeedback
+        onPressIn = {this._onPressIn.bind(this)}
+        onPress = {this.props.onPress}
+        onPressOut = {this._onPressOut.bind(this)}
+        >
         <View style = {styles.row}>
           <View style = {{alignSelf: 'center', width: 17}}>
             <Text>{leftAxis}</Text>
           </View>
-          <View style = {[styles.rowElement,{borderLeftWidth:2}]}>
-            <Text style = {styles.letter}> {this.props.rowData[1]} </Text>
-          </View>
-          <View style = {styles.rowElement}>
-            <Text style = {styles.letter}> {this.props.rowData[2]} </Text>
-          </View>
-          <View style = {styles.rowElement}>
-            <Text style = {styles.letter}> {this.props.rowData[3]} </Text>
-          </View>
-          <View style = {styles.rowElement}>
-            <Text style = {styles.letter}> {this.props.rowData[4]} </Text>
-          </View>
-          <View style = {[styles.rowElement,{borderRightWidth:2}]}>
-            <Text style = {styles.letter}> {this.props.rowData[5]} </Text>
-          </View>
+          <Animated.View style = {[styles.chartBodyHighlight, {marginTop:this.state.marginTop, paddingLeft: this.state.marginTop}] }>
+            <Animated.View style = {[styles.chartBody, {borderRightWidth: this.state.borderRightWidth, borderBottomWidth: this.state.borderBottomWidth}]}>
+              <View style = {[styles.rowElement]}>
+                <Text style = {styles.letter}> {this.props.rowData[1]} </Text>
+              </View>
+              <View style = {styles.rowElement}>
+                <Text style = {styles.letter}> {this.props.rowData[2]} </Text>
+              </View>
+              <View style = {styles.rowElement}>
+                <Text style = {styles.letter}> {this.props.rowData[3]} </Text>
+              </View>
+              <View style = {styles.rowElement}>
+                <Text style = {styles.letter}> {this.props.rowData[4]} </Text>
+              </View>
+              <View style = {[styles.rowElement]}>
+                <Text style = {styles.letter}> {this.props.rowData[5]} </Text>
+              </View>
+            </Animated.View>
+          </Animated.View>
         </View>
-      </TouchableOpacity>
+      </TouchableWithoutFeedback>
     );
   }
 }
@@ -148,7 +221,7 @@ export default class KatakanaScreen extends Component {
           <Row
             rowData = {rowData}
             onPress = {() => {
-              this._moveScreenWhenLeaving();
+              //this._moveScreenWhenLeaving();
               navigate('PlayOrStudy', {currentRow:rowData, kana:'Katakana', returnScreen:this._moveScreenWhenReturned.bind(this)});
               //this._moveScreenWhenReturned();
             }}
@@ -201,18 +274,54 @@ const styles = StyleSheet.create({
     //backgroundColor: 'blue',
   },
   chartTitleElements:{
-    //flex: 1,
-    //justifyContent: 'flex-end',
-    //backgroundColor: 'white',
-    //borderTopWidth: 1,
-    //borderBottomWidth: 1,
     width: deviceWidth/6,
     height: 20,
   },
-  rowElement:{
+  chartBody:{
+    //flex: 1,
+    //justifyContent: 'flex-end',
+    flexDirection: 'row',
     backgroundColor: 'white',
+    borderColor: 'lightgray',//'gray',//'lightblue',
+    //borderRadius: 5,
+    borderWidth: 3,
     borderTopWidth: 1,
-    borderBottomWidth: 1,
+    //borderBottomWidth: 0,
+    //borderRightWidth: 3,
+    borderLeftWidth: 1,
+    //borderTopWidth: 1,
+    //borderBottomWidth: 1,
+    width: 5*deviceWidth/6,
+    //height: 20,
+  },
+  chartBodyHighlight:{
+    margin: 2,
+    //flex: 1,
+    justifyContent: 'center',//'flex-end',
+    flexDirection: 'row',
+    //shadowColor: 'black',
+    //shadowOffset: {width:0, height:1},
+    alignItems: 'flex-start',
+    backgroundColor: 'white',
+    borderColor: 'gray',//'lightblue',//'gray',
+    //borderBottomColor: 'gray',
+    borderRadius: 2,//7,
+    //borderBottomRightRadius: 5,
+    //borderWidth: 1,
+    borderTopWidth: 0,
+    //borderBottomWidth: 0,
+    //borderRightWidth: 1,
+    borderLeftWidth: 0,
+    borderWidth: 1,
+    //borderTopWidth: 1,
+    //borderBottomWidth: 1,
+    width: 5*deviceWidth/6,
+    //height: 20,
+  },
+  rowElement:{
+    backgroundColor: 'transparent',
+    //borderTopWidth: 1,
+    //borderBottomWidth: 1,
     width: deviceWidth/6,
   },
   letter: {
