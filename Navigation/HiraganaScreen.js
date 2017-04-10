@@ -81,20 +81,36 @@ class Row extends Component{
   }
 
   _onPressOut(){
+    var that = this;
+    setTimeout( () =>{
+      that.setState({
+        pressed: 0,
+        borderRightWidth:StyleSheet.flatten(styles.chartBody).borderRightWidth,
+        borderBottomWidth:StyleSheet.flatten(styles.chartBody).borderBottomWidth,
+        marginTop: 0,
+      });
+    }, 300);
+  }
+
+  _onPress(){
+    this.props.onPress()
+/*
     this.setState({
-      pressed: 0,
-      borderRightWidth:StyleSheet.flatten(styles.chartBody).borderRightWidth,
-      borderBottomWidth:StyleSheet.flatten(styles.chartBody).borderBottomWidth,
-      marginTop: 0,
+      pressed: 1,
+      borderRightWidth: 2,
+      borderBottomWidth: 0,
+      marginTop: 1,
     });
-    /*
-    Animated.timing(                            // Animate value over time
-      this.state.pressed,                      // The value to drive
-      {
-        toValue: 0,                             // Animate to final value of 1
-        duration:0,
-      }
-    ).start();
+    var that = this;
+
+    setTimeout( () =>{
+      that.setState({
+        pressed: 0,
+        borderRightWidth:StyleSheet.flatten(styles.chartBody).borderRightWidth,
+        borderBottomWidth:StyleSheet.flatten(styles.chartBody).borderBottomWidth,
+        marginTop: 0,
+      });
+    }, 300);
     */
   }
 
@@ -118,7 +134,7 @@ class Row extends Component{
     return (
       <TouchableWithoutFeedback
         onPressIn = {this._onPressIn.bind(this)}
-        onPress = {this.props.onPress}
+        onPress = {this._onPress.bind(this)}
         onPressOut = {this._onPressOut.bind(this)}
         >
         <View style = {styles.row}>
