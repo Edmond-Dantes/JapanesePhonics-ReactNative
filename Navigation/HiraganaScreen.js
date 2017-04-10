@@ -81,7 +81,8 @@ class Row extends Component{
         borderBottomWidth:StyleSheet.flatten(styles.chartBody).borderBottomWidth,
         marginTop: 0,
       });
-    }, 300);
+      this.props.hasPressedOut();
+    }, 400);
   }
 
   _onPress(){
@@ -141,6 +142,7 @@ export default class HiraganaScreen extends Component {
     this.state = {
       position : new Animated.Value(0),
       dataSource: ds.cloneWithRows(hiragana),
+      isPressed: false,
     };
   }
   static navigationOptions = {
@@ -159,26 +161,10 @@ export default class HiraganaScreen extends Component {
     //console.log("UNMOUNTED MS");
   }
 
-  _moveScreenWhenLeaving(){
-    Animated.timing(
-      this.state.position,
-      {
-        duration: 300,
-        toValue: -deviceHeight * .25,
-        //easing: Easing.out(Easing.ease),
-      }
-    ).start(/*this._moveScreenWhenReturned.bind(this)*/);
-  }
-
-  _moveScreenWhenReturned(){
-    Animated.timing(
-      this.state.position,
-      {
-        duration: 300,
-        toValue: 0,
-        //easing: Easing.out(Easing.ease),
-      }
-    ).start();
+  _hasPressedOut(){
+    this.setState({
+      isPressed:false,
+    });
   }
 
   render() {
@@ -202,11 +188,16 @@ export default class HiraganaScreen extends Component {
           ref = {(listView) => { _listView = listView; }}
           renderRow={(rowData) =>
           <Row
+            hasPressedOut = {this._hasPressedOut.bind(this)}
             rowData = {rowData}
             onPress = {() => {
               //this._moveScreenWhenLeaving();
-              navigate('PlayOrStudy', {currentRow:rowData, kana:'Hiragana', returnScreen:this._moveScreenWhenReturned.bind(this)});
-
+              if (!this.state.isPressed){
+                this.setState({
+                  isPressed:true,
+                });
+                navigate('PlayOrStudy', {currentRow:rowData, kana:'Hiragana'});
+              }
             }}
           />
         }

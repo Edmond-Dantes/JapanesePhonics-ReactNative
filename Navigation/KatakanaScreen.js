@@ -82,7 +82,8 @@ class Row extends Component{
         borderBottomWidth:StyleSheet.flatten(styles.chartBody).borderBottomWidth,
         marginTop: 0,
       });
-    }, 300);
+      this.props.hasPressedOut();
+    }, 400);
   }
 
   _onPress(){
@@ -145,7 +146,7 @@ export default class KatakanaScreen extends Component {
     this.state = {
       position : new Animated.Value(0),
       dataSource: ds.cloneWithRows(katakana),
-      cancel: true,
+      isPressed: false,
 
       hasNavigated: false,
     };
@@ -166,10 +167,9 @@ export default class KatakanaScreen extends Component {
     //console.log("UNMOUNTED MS");
   }
 
-  _canCancelContentTouches(){
-    console.log("scroll stuff!!!");
+  _hasPressedOut(){
     this.setState({
-      cancel: false,
+      isPressed:false,
     });
   }
 
@@ -195,9 +195,15 @@ export default class KatakanaScreen extends Component {
           renderRow={(rowData) =>
 
           <Row
+            hasPressedOut = {this._hasPressedOut.bind(this)}
             rowData = {rowData}
             onPress = {() => {
-              navigate('PlayOrStudy', {currentRow:rowData, kana:'Katakana'});
+              if (!this.state.isPressed){
+                this.setState({
+                  isPressed:true,
+                });
+                navigate('PlayOrStudy', {currentRow:rowData, kana:'Katakana'});
+              }
             }}
           />
         }
