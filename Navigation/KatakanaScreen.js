@@ -8,6 +8,7 @@ import {
   ListView,
   Animated,
   TouchableOpacity,
+  TouchableHighlight,
   TouchableWithoutFeedback,
   //LayoutAnimation,
 } from 'react-native';
@@ -70,14 +71,6 @@ class Row extends Component{
       borderBottomWidth: 0,
       marginTop: 1,
     });
-    /*Animated.timing(                            // Animate value over time
-      this.state.pressed,                      // The value to drive
-      {
-        toValue: 1,
-        duration:0,                             // Animate to final value of 1
-      }
-    ).start();
-    */
   }
 
   _onPressOut(){
@@ -93,47 +86,24 @@ class Row extends Component{
   }
 
   _onPress(){
-    this.props.onPress()
-/*
-    this.setState({
-      pressed: 1,
-      borderRightWidth: 2,
-      borderBottomWidth: 0,
-      marginTop: 1,
-    });
-    var that = this;
-
-    setTimeout( () =>{
-      that.setState({
-        pressed: 0,
-        borderRightWidth:StyleSheet.flatten(styles.chartBody).borderRightWidth,
-        borderBottomWidth:StyleSheet.flatten(styles.chartBody).borderBottomWidth,
-        marginTop: 0,
-      });
-    }, 300);
-    */
+    //console.log("_onPress() in Row/Katakana");
+    return this.props.onPress();
   }
 
-  componentDidMount(){/*
-    this.state.borderRightWidth = this.state.pressed.interpolate({
-      inputRange: [0, 1],
-      outputRange: [StyleSheet.flatten(styles.chartBody).borderRightWidth, 0],
-    });
-    this.state.borderBottomWidth = this.state.pressed.interpolate({
-      inputRange: [0, 1],
-      outputRange: [StyleSheet.flatten(styles.chartBody).borderBottomWidth, 0],
-    });*/
+  componentDidMount(){
+
   }
 
   render(){
     var leftAxis = this.props.rowData[0] == 'NA' ? '' : this.props.rowData[0];
-    console.log('render hasNavigated: ' + this.props.hasNavigated);
+    //console.log('render hasNavigated: ' + this.props.hasNavigated);
 
 
 
 
     return (
       <TouchableWithoutFeedback
+        delayPressIn ={100}
         onPressIn = {this._onPressIn.bind(this)}
         onPress = {this._onPress.bind(this)}//this.props.onPress}
         onPressOut = {this._onPressOut.bind(this)}
@@ -175,6 +145,7 @@ export default class KatakanaScreen extends Component {
     this.state = {
       position : new Animated.Value(0),
       dataSource: ds.cloneWithRows(katakana),
+      cancel: true,
 
       hasNavigated: false,
     };
@@ -195,32 +166,19 @@ export default class KatakanaScreen extends Component {
     //console.log("UNMOUNTED MS");
   }
 
-  _moveScreenWhenLeaving(){
-    Animated.timing(
-      this.state.position,
-      {
-        duration: 300,
-        toValue: -deviceHeight * .25,
-        //easing: Easing.out(Easing.ease),
-      }
-    ).start(/*this._moveScreenWhenReturned.bind(this)*/);
+  _canCancelContentTouches(){
+    console.log("scroll stuff!!!");
+    this.setState({
+      cancel: false,
+    });
   }
 
-  _moveScreenWhenReturned(){
-    Animated.timing(
-      this.state.position,
-      {
-        duration: 300,
-        toValue: 0,
-        //easing: Easing.out(Easing.ease),
-      }
-    ).start();
-  }
 
   render() {
     const { navigate } = this.props.navigation;
     var swipeLeftText = '^^^ Scroll Down for more   or   Swipe Left for Hiragana <<<';
-    var hasNavigated = false;//this.state.hasNavigated;
+    //var hasNavigated = false;//this.state.hasNavigated;
+    var _listView: ListView;
     return (
       <Animated.View style = {[styles.container,
         {
@@ -233,14 +191,13 @@ export default class KatakanaScreen extends Component {
         <ChartTitleRow/>
         <ListView contentContainerStyle = {styles.listViewStyle}
           dataSource={this.state.dataSource}
+          ref = {(listView) => { _listView = listView; }}
           renderRow={(rowData) =>
 
           <Row
             rowData = {rowData}
             onPress = {() => {
-              //this._moveScreenWhenLeaving();
-              navigate('PlayOrStudy', {currentRow:rowData, kana:'Katakana', returnScreen:this._moveScreenWhenReturned.bind(this)});
-              //this._moveScreenWhenReturned();
+              navigate('PlayOrStudy', {currentRow:rowData, kana:'Katakana'});
             }}
           />
         }

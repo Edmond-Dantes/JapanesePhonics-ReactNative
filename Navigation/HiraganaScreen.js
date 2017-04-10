@@ -70,14 +70,6 @@ class Row extends Component{
       borderBottomWidth: 0,
       marginTop: 1,
     });
-    /*Animated.timing(                            // Animate value over time
-      this.state.pressed,                      // The value to drive
-      {
-        toValue: 1,
-        duration:0,                             // Animate to final value of 1
-      }
-    ).start();
-    */
   }
 
   _onPressOut(){
@@ -93,36 +85,10 @@ class Row extends Component{
   }
 
   _onPress(){
-    this.props.onPress()
-/*
-    this.setState({
-      pressed: 1,
-      borderRightWidth: 2,
-      borderBottomWidth: 0,
-      marginTop: 1,
-    });
-    var that = this;
-
-    setTimeout( () =>{
-      that.setState({
-        pressed: 0,
-        borderRightWidth:StyleSheet.flatten(styles.chartBody).borderRightWidth,
-        borderBottomWidth:StyleSheet.flatten(styles.chartBody).borderBottomWidth,
-        marginTop: 0,
-      });
-    }, 300);
-    */
+    return this.props.onPress();
   }
 
-  componentDidMount(){/*
-    this.state.borderRightWidth = this.state.pressed.interpolate({
-      inputRange: [0, 1],
-      outputRange: [StyleSheet.flatten(styles.chartBody).borderRightWidth, 0],
-    });
-    this.state.borderBottomWidth = this.state.pressed.interpolate({
-      inputRange: [0, 1],
-      outputRange: [StyleSheet.flatten(styles.chartBody).borderBottomWidth, 0],
-    });*/
+  componentDidMount(){
   }
 
   render(){
@@ -133,6 +99,7 @@ class Row extends Component{
 
     return (
       <TouchableWithoutFeedback
+        delayPressIn ={100}
         onPressIn = {this._onPressIn.bind(this)}
         onPress = {this._onPress.bind(this)}
         onPressOut = {this._onPressOut.bind(this)}
@@ -217,7 +184,7 @@ export default class HiraganaScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     var swipeRightText = '>>> Swipe Right for Katakana   or   Scroll Down for more ^^^';
-
+    var _listView: ListView;
     //console.log(this.props.navigation.state.key);
     //var letterArr = this.props.navigation.state.params.letterArr;
     return (
@@ -232,8 +199,8 @@ export default class HiraganaScreen extends Component {
         <ChartTitleRow/>
         <ListView contentContainerStyle = {styles.listViewStyle}
           dataSource={this.state.dataSource}
+          ref = {(listView) => { _listView = listView; }}
           renderRow={(rowData) =>
-
           <Row
             rowData = {rowData}
             onPress = {() => {
